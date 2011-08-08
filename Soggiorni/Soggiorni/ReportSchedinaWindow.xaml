@@ -1,0 +1,8 @@
+﻿<Window x:Class="Soggiorni.ReportSchedinaWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Report Scheda di notifica" Height="600" Width="800" Loaded="Window_Loaded" ResizeMode="CanResize" WindowStartupLocation="CenterScreen" WindowState="Maximized">
+    <DockPanel>
+        <WindowsFormsHost Name="windowsFormsHost"/>
+    </DockPanel>
+</Window>

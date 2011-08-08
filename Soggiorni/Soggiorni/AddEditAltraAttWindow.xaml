@@ -1,0 +1,16 @@
+﻿<Window x:Class="Soggiorni.AddEditAltraAttWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Aggiungi altra attività" Height="294" Width="351" Background="{DynamicResource sfondoWindow}" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <TextBlock Height="23" HorizontalAlignment="Left" Margin="12,24,0,0" Name="txtData" Text="Data" VerticalAlignment="Top" FontSize="14" />
+        <DatePicker Height="25" HorizontalAlignment="Left" Margin="154,20,0,0" Name="datePickerData" VerticalAlignment="Top" Width="163" FontSize="14" />
+        <TextBlock FontSize="14" Height="23" HorizontalAlignment="Left" Margin="12,63,0,0" Name="txtVoceStampa" Text="Voce nella stampa" VerticalAlignment="Top" />
+        <TextBox Height="26" HorizontalAlignment="Left" Margin="154,60,0,0" Name="txtboxVoceStampa" VerticalAlignment="Top" Width="163" FontSize="14" />
+        <TextBlock FontSize="14" Height="23" HorizontalAlignment="Left" Margin="12,172,0,0" Name="txtTotale" Text="Totale (iva compresa)" VerticalAlignment="Top" />
+        <TextBlock FontSize="14" Height="23" HorizontalAlignment="Left" Margin="12,101,0,0" Name="txtDescr" Text="Descrizione" VerticalAlignment="Top" />
+        <TextBox FontSize="14" HorizontalAlignment="Left" Margin="154,98,0,0" Name="txtboxDescr" Width="163" Height="56" VerticalAlignment="Top" TextWrapping="Wrap" />
+        <TextBox FontSize="14" Height="26" HorizontalAlignment="Left" Margin="154,169,0,0" Name="txtboxTotale" VerticalAlignment="Top" Width="163" />
+        <Button Content="Aggiungi" Height="31" HorizontalAlignment="Left" Margin="211,218,0,0" Name="btnAdd" VerticalAlignment="Top" Width="106" Click="btnAdd_Click" />
+    </Grid>
+</Window>

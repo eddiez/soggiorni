@@ -1,0 +1,39 @@
+﻿<Window x:Class="Soggiorni.SelectMesePresenzeWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:Soggiorni.Converters"
+        Title="Seleziona mese per presenze ISTAT" Background="{DynamicResource sfondoWindow}" Height="372" Width="400" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <local:DateConverter x:Key="dateConverter" />
+    </Window.Resources>
+    <Grid>
+        <TextBlock FontFamily="Segoe UI" FontSize="14" FontWeight="Normal" Foreground="Black" Height="23" HorizontalAlignment="Left" Margin="50,12,0,0" Name="txtHeaderText" Text="Genera file presenze ISTAT per il mese di" VerticalAlignment="Top" />
+        <ComboBox ItemsSource="{Binding Keys}" Height="23" HorizontalAlignment="Left" Margin="52,53,0,0" Name="cbxMese" VerticalAlignment="Top" Width="169" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="227,53,0,0" Name="txtboxAnno" VerticalAlignment="Top" Width="74" />
+        <Separator Height="5" HorizontalAlignment="Left" Margin="0,154,0,0" Name="separator1" VerticalAlignment="Top" Width="419" />
+        <TextBlock FontFamily="Segoe UI" FontSize="12" FontWeight="Bold" Foreground="Black" Height="23" HorizontalAlignment="Left" Margin="12,169,0,0" Name="txtSoggiorni" Text="Soggiorni senza schede di notifica associate" VerticalAlignment="Top" />
+        <DataGrid AlternatingRowBackground="#FFFFE7B1" AutoGenerateColumns="False" BorderBrush="#FF688CAF" CanUserReorderColumns="False" CanUserSortColumns="False" FontSize="13" Foreground="#FF717171" GridLinesVisibility="Vertical" HeadersVisibility="Column" Height="127" HorizontalAlignment="Left" HorizontalContentAlignment="Center" HorizontalGridLinesBrush="Black" IsReadOnly="True" IsSynchronizedWithCurrentItem="False" ItemsSource="{Binding}" Margin="12,189,0,0" Name="dataGridSoggiorni" SelectionMode="Single" VerticalAlignment="Top" VerticalContentAlignment="Center" VerticalGridLinesBrush="#FFD8D8D8" Width="354" MouseDoubleClick="dataGridSoggiorni_MouseDoubleClick">
+            <DataGrid.CellStyle>
+                <Style TargetType="{x:Type DataGridCell}">
+                    <Setter Property="Control.Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type DataGridCell}">
+                                <Grid Background="{TemplateBinding Control.Background}" Margin="5">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                </Grid>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </DataGrid.CellStyle>
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Arrivo, Converter={StaticResource dateConverter}, ConverterParameter=dd/MM/yyyy}" Header="Arrivo" />
+                <DataGridTextColumn Binding="{Binding Partenza, Converter={StaticResource dateConverter}, ConverterParameter=dd/MM/yyyy}" Header="Partenza" />
+                <DataGridTextColumn Binding="{Binding Cliente.Cognome}" Header="Cliente" />
+                <DataGridTextColumn Binding="{Binding Camera.Numero}" Header="Camera" />
+                <DataGridCheckBoxColumn Binding="{Binding IsCheckedIn}" Header="Check-In ?" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Content="Crea file" Height="23" HorizontalAlignment="Left" Margin="227,112,0,0" Name="btnGenera" VerticalAlignment="Top" Width="75" Click="btnGenera_Click" />
+    </Grid>
+</Window>

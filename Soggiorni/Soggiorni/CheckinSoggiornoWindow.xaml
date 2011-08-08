@@ -1,0 +1,48 @@
+﻿<Window x:Class="Soggiorni.CheckinSoggiornoWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Check-In Soggiorno" Height="296" Width="403" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Background="{DynamicResource sfondoWindow}">
+    <Grid>
+        <TextBlock FontFamily="Segoe UI" FontSize="24" FontWeight="Bold" Foreground="#FF8D4600" Height="34" HorizontalAlignment="Left" Margin="21,12,0,0" Name="txtSchede" Text="SCHEDE DI NOTIFICA" VerticalAlignment="Top" Width="298" />
+        <DataGrid AlternatingRowBackground="#FFFFE7B1" AutoGenerateColumns="False" CanUserAddRows="False" CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserResizeRows="False" CanUserSortColumns="False" FontFamily="Segoe UI" FontSize="14" FontWeight="Normal" Foreground="#FF717171" GridLinesVisibility="Vertical" HeadersVisibility="Column" Height="131" IsReadOnly="True" IsSynchronizedWithCurrentItem="False" ItemsSource="{Binding}" Margin="21,77,12,0" Name="dataGridSchede" SelectionMode="Single" TabIndex="10" VerticalAlignment="Top" VerticalGridLinesBrush="#FFD8D8D8" MouseDoubleClick="dataGridSchede_MouseDoubleClick">
+            <DataGrid.CellStyle>
+                <Style TargetType="{x:Type DataGridCell}">
+                    <Setter Property="Control.Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type DataGridCell}">
+                                <Grid Background="{TemplateBinding Control.Background}" Margin="5,2,5,2">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                </Grid>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </DataGrid.CellStyle>
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Cliente.Cognome}" Header="Cognome" />
+                <DataGridTextColumn Binding="{Binding Cliente.Nome}" Header="Nome" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Height="20" HorizontalAlignment="Right" Margin="0,51,43,0" Name="btnAddScheda" TabIndex="8" VerticalAlignment="Top" Width="25" Click="btnAddScheda_Click" ToolTip="Crea schedina per un cliente esistente">
+            <Image Source="/Soggiorni;component/Images/add.png" />
+        </Button>
+        <Button Height="20" HorizontalAlignment="Right" Margin="0,51,12,0" Name="btnDeleteScheda" TabIndex="9" VerticalAlignment="Top" Width="25" Click="btnDeleteScheda_Click" ToolTip="Elimina schedina del cliente selezionato">
+            <Image Source="/Soggiorni;component/Images/delete.png" />
+        </Button>
+        <Button Content="Annulla" Height="30" HorizontalAlignment="Right" Margin="0,219,12,0" Name="btnAnnulla" VerticalAlignment="Top" Width="82" Click="btnAnnulla_Click" />
+        <Button Content="Salva" Height="30" HorizontalAlignment="Right" Margin="0,219,100,0" Name="btnSalva" VerticalAlignment="Top" Width="82" Click="btnSalva_Click" />
+        <Button Height="30" HorizontalAlignment="Left" Margin="21,219,0,0" Name="btnPrint" VerticalAlignment="Top" Width="38" Click="btnPrint_Click">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="/Soggiorni;component/Images/printer.png" Stretch="None" />
+            </StackPanel>
+        </Button>
+        <Button Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Width="38" Name="btnPrestampato"  Margin="66,220,278,8" Click="btnPrestampato_Click">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="/Soggiorni;component/Images/page_white_acrobat.ico" Stretch="None" />
+            </StackPanel>
+        </Button>
+        <Button Height="20" HorizontalAlignment="Left" Margin="21,51,0,0" Name="btnNewCliente" TabIndex="9" VerticalAlignment="Top" Width="25" Click="btnNewCliente_Click" ToolTip="Inserisci nuovo cliente nell'archivio">
+            <Image Source="/Soggiorni;component/Images/user_add.png" />
+        </Button>
+    </Grid>
+</Window>

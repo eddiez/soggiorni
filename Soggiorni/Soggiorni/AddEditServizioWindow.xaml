@@ -1,0 +1,16 @@
+﻿<Window x:Class="Soggiorni.AddEditServizioWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Aggiungi Servizio al soggiorno" Height="237" Width="328" Background="{DynamicResource sfondoWindow}" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Grid>
+        <ComboBox ItemsSource="{Binding}" DisplayMemberPath="Nome" SelectedValuePath="Nome" Height="23" HorizontalAlignment="Left" Margin="116,34,0,0" Name="cbxTipo" VerticalAlignment="Top" Width="170" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="116,63,0,0" Name="txtboxTotale" VerticalAlignment="Top" Width="170" />
+        <TextBox Height="57" HorizontalAlignment="Left" Margin="116,92,0,0" Name="txtboxDescr" VerticalAlignment="Top" Width="170" TextWrapping="Wrap" />
+        <TextBlock FontFamily="Segoe UI" FontSize="14" FontWeight="Normal" Foreground="Black" Height="23" HorizontalAlignment="Left" Margin="20,92,0,0" Name="txtDescr" Text="Descrizione" VerticalAlignment="Top" />
+        
+        <TextBlock FontFamily="Segoe UI" FontSize="14" FontWeight="Normal" Foreground="Black" Height="23" HorizontalAlignment="Left" Margin="20,63,0,0" Name="txtTotale" Text="Totale (€)" VerticalAlignment="Top" />
+        <TextBlock FontFamily="Segoe UI" FontSize="14" FontWeight="Normal" Foreground="Black" Height="23" HorizontalAlignment="Left" Margin="20,34,0,0" Name="txtTipo" Text="Tipo servizio" VerticalAlignment="Top" />
+        <Button Content="Inserisci" Height="23" HorizontalAlignment="Left" Margin="116,163,0,0" Name="btnInsert" VerticalAlignment="Top" Width="75" Click="btnInsert_Click" />
+        <Button Content="Annulla" Height="23" HorizontalAlignment="Left" Margin="211,163,0,0" Name="btnAnnulla" VerticalAlignment="Top" Width="75" Click="btnAnnulla_Click" />
+    </Grid>
+</Window>

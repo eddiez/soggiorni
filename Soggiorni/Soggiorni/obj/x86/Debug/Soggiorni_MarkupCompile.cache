@@ -1,0 +1,20 @@
+﻿Soggiorni
+
+
+winexe
+C#
+.cs
+D:\Siti, sw mio\Soggiorni\codice\Soggiorni\Soggiorni\obj\x86\Debug\
+Soggiorni
+none
+false
+DEBUG;TRACE
+D:\Siti, sw mio\Soggiorni\codice\Soggiorni\Soggiorni\App.xaml
+34-1174299427
+2448398992
+681892181433
+181810263369
+AddClienteWindow.xaml;AddEditAltraAttWindow.xaml;AddEditPagamentoWindow.xaml;AddEditServizioWindow.xaml;AddSoggiornoWindow.xaml;AssociaSoggiornoAPagamentoWindow.xaml;CambiaPeriodoCameraWindow.xaml;CercaClienteWindow.xaml;CercaPagamentoWindow.xaml;CercaSoggiornoWindow.xaml;CFCalcWindow.xaml;CheckinSoggiornoWindow.xaml;CheckoutSoggiornoWindow.xaml;DettagliClienteWindow.xaml;EditSchedinaClienteWindow.xaml;MainWindow.xaml;ModificaSoggiornoWindow.xaml;ReportCorrispettiviWindow.xaml;ReportPagamentoWindow.xaml;ReportSchedinaWindow.xaml;Resources\DictionaryMain.xaml;SelectMesePresenzeWindow.xaml;SelectPeriodoPresenzeWindow.xaml;SelectPeriodoSchedineWindow.xaml;SelezionaComuneWindow.xaml;SelezionaMeseCorrispettiviWindow.xaml;SelezionaProvIstatWindow.xaml;SelezionaStatoWindow.xaml;SelezionaUnClienteWindow.xaml;SelezionaUnPagamentoWindow.xaml;SettingsNotifichePremiWindow.xaml;TableauReportWindow.xaml;TableauWinformsWindow.xaml;VerificaDisponibilitaWindow.xaml;
+splashscreen.png
+False
+

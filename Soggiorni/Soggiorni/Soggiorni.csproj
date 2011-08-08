@@ -1,0 +1,478 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E4139935-D85E-401C-A644-966B771DFB75}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Soggiorni</RootNamespace>
+    <AssemblyName>Soggiorni</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>To-Do List.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CFcalculator, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\codice fiscale\MyCodiceFiscale\CFcalculator\bin\Release\CFcalculator.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsFormsIntegration" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="AboutBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AboutBox.Designer.cs">
+      <DependentUpon>AboutBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddClienteWindow.xaml.cs">
+      <DependentUpon>AddClienteWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AddEditAltraAttWindow.xaml.cs">
+      <DependentUpon>AddEditAltraAttWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AddEditPagamentoWindow.xaml.cs">
+      <DependentUpon>AddEditPagamentoWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AddEditServizioWindow.xaml.cs">
+      <DependentUpon>AddEditServizioWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AddSoggiornoWindow.xaml.cs">
+      <DependentUpon>AddSoggiornoWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AssociaSoggiornoAPagamentoWindow.xaml.cs">
+      <DependentUpon>AssociaSoggiornoAPagamentoWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CambiaPeriodoCameraWindow.xaml.cs">
+      <DependentUpon>CambiaPeriodoCameraWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CercaClienteWindow.xaml.cs">
+      <DependentUpon>CercaClienteWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CercaPagamentoWindow.xaml.cs">
+      <DependentUpon>CercaPagamentoWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CercaSoggiornoWindow.xaml.cs">
+      <DependentUpon>CercaSoggiornoWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CFCalcWindow.xaml.cs">
+      <DependentUpon>CFCalcWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CheckinSoggiornoWindow.xaml.cs">
+      <DependentUpon>CheckinSoggiornoWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CheckoutSoggiornoWindow.xaml.cs">
+      <DependentUpon>CheckoutSoggiornoWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Converters\BoolFatturaConverter.cs" />
+    <Compile Include="Converters\DateConverter.cs" />
+    <Compile Include="Converters\DecimalConverter.cs" />
+    <Compile Include="Data\DataAccessGateway.cs" />
+    <Compile Include="DettagliClienteWindow.xaml.cs">
+      <DependentUpon>DettagliClienteWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EditSchedinaClienteWindow.xaml.cs">
+      <DependentUpon>EditSchedinaClienteWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AltraAttivita.cs" />
+    <Compile Include="Model\AuguriClientiCsvFileGenerator.cs" />
+    <Compile Include="Model\Camera.cs" />
+    <Compile Include="Model\Cliente.cs" />
+    <Compile Include="Model\Comune.cs" />
+    <Compile Include="Model\CorrispettiviGenerator.cs" />
+    <Compile Include="Model\CorrispettivoGiorno.cs" />
+    <Compile Include="Model\PagamentiComparer.cs" />
+    <Compile Include="Model\Pagamento.cs" />
+    <Compile Include="Model\PresenzeFileGenerator.cs" />
+    <Compile Include="Model\PresenzeGiorno.cs" />
+    <Compile Include="Model\PresenzeKey.cs" />
+    <Compile Include="Model\ProvenienzaIstat.cs" />
+    <Compile Include="Model\SchedaNotifica.cs" />
+    <Compile Include="Model\SchedaNotificaComparer.cs" />
+    <Compile Include="Model\SchedineFileGenerator.cs" />
+    <Compile Include="Model\ServizioSoggiorno.cs" />
+    <Compile Include="Model\Soggiorno.cs" />
+    <Compile Include="Model\Stato.cs" />
+    <Compile Include="Model\TableauPivot.cs" />
+    <Compile Include="Model\TableauReportCellComparer.cs" />
+    <Compile Include="Model\TipoDocumento.cs" />
+    <Compile Include="Model\VocePagamento.cs" />
+    <Compile Include="ModificaSoggiornoWindow.xaml.cs">
+      <DependentUpon>ModificaSoggiornoWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ReportCorrispettiviWindow.xaml.cs">
+      <DependentUpon>ReportCorrispettiviWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ReportPagamentoWindow.xaml.cs">
+      <DependentUpon>ReportPagamentoWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ReportSchedinaWindow.xaml.cs">
+      <DependentUpon>ReportSchedinaWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SchedinaReportItem.cs" />
+    <Compile Include="SelectMesePresenzeWindow.xaml.cs">
+      <DependentUpon>SelectMesePresenzeWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SelectPeriodoPresenzeWindow.xaml.cs">
+      <DependentUpon>SelectPeriodoPresenzeWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SelectPeriodoSchedineWindow.xaml.cs">
+      <DependentUpon>SelectPeriodoSchedineWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SelezionaComuneWindow.xaml.cs">
+      <DependentUpon>SelezionaComuneWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SelezionaMeseCorrispettiviWindow.xaml.cs">
+      <DependentUpon>SelezionaMeseCorrispettiviWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SelezionaProvIstatWindow.xaml.cs">
+      <DependentUpon>SelezionaProvIstatWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SelezionaStatoWindow.xaml.cs">
+      <DependentUpon>SelezionaStatoWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SelezionaUnClienteWindow.xaml.cs">
+      <DependentUpon>SelezionaUnClienteWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SelezionaUnPagamentoWindow.xaml.cs">
+      <DependentUpon>SelezionaUnPagamentoWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SettingsNotifichePremiWindow.xaml.cs">
+      <DependentUpon>SettingsNotifichePremiWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SoggiorniDbDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SoggiorniDbDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="TableauReportWindow.xaml.cs">
+      <DependentUpon>TableauReportWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TableauWinformsWindow.xaml.cs">
+      <DependentUpon>TableauWinformsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="VerificaDisponibilitaWindow.xaml.cs">
+      <DependentUpon>VerificaDisponibilitaWindow.xaml</DependentUpon>
+    </Compile>
+    <Page Include="AddClienteWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AddEditAltraAttWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AddEditPagamentoWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AddEditServizioWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AddSoggiornoWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AssociaSoggiornoAPagamentoWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CambiaPeriodoCameraWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CercaClienteWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CercaPagamentoWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CercaSoggiornoWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CFCalcWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CheckinSoggiornoWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CheckoutSoggiornoWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DettagliClienteWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EditSchedinaClienteWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="ModificaSoggiornoWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ReportCorrispettiviWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ReportPagamentoWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ReportSchedinaWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\DictionaryMain.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SelectMesePresenzeWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SelectPeriodoPresenzeWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SelectPeriodoSchedineWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SelezionaComuneWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SelezionaMeseCorrispettiviWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SelezionaProvIstatWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SelezionaStatoWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SelezionaUnClienteWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SelezionaUnPagamentoWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SettingsNotifichePremiWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TableauReportWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TableauWinformsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="VerificaDisponibilitaWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="AboutBox.resx">
+      <DependentUpon>AboutBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CorrispettiviReport.rdlc" />
+    <EmbeddedResource Include="PagamentoReport.rdlc" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SchedinaReport.rdlc" />
+    <EmbeddedResource Include="TableauReport.rdlc" />
+    <None Include="app.config" />
+    <None Include="prestampato schedine.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Properties\DataSources\SchedinaReportItem.datasource" />
+    <None Include="Properties\DataSources\Soggiorni.Model.CorrispettivoGiorno.datasource" />
+    <None Include="Properties\DataSources\Soggiorni.Model.Pagamento.datasource" />
+    <None Include="Properties\DataSources\Soggiorni.Model.TableauPivot.datasource" />
+    <None Include="Properties\DataSources\Soggiorni.Model.VocePagamento.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+    <None Include="SoggiorniDbDataSet.xsc">
+      <DependentUpon>SoggiorniDbDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="SoggiorniDbDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SoggiorniDbDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SoggiorniDbDataSet.xss">
+      <DependentUpon>SoggiorniDbDataSet.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="To-Do List.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\addressbook.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\search_user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\add_user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\emblem-question.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\button_cancel.png" />
+    <Resource Include="Images\button_ok.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Commands\" />
+  </ItemGroup>
+  <ItemGroup>
+    <SplashScreen Include="SplashScreen.png" />
+    <Resource Include="Images\exit.png" />
+    <Resource Include="Images\add.png" />
+    <Resource Include="Images\cancel.png" />
+    <Resource Include="Images\edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\delete.png" />
+    <Resource Include="Images\user_add.png" />
+    <Resource Include="Images\printer.png" />
+    <Resource Include="Images\pdf.png" />
+    <Resource Include="Images\page_white_acrobat.ico" />
+    <Resource Include="Images\user_policeman.ico" />
+    <Resource Include="Images\statistics_16.ico" />
+    <Resource Include="Images\page_white_edit.png" />
+    <Resource Include="Images\1297203264_piggy_bank.ico" />
+    <Resource Include="Images\cashbox.ico" />
+    <Resource Include="Images\cash_terminal.ico" />
+    <Resource Include="Images\magnifier.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\find.png" />
+    <Resource Include="Images\add-event.ico" />
+    <Resource Include="Images\event-search.ico" />
+    <Resource Include="Images\piggy_bank2.ico" />
+    <Resource Include="Images\contacts.ico" />
+    <Resource Include="Images\cabinet.ico" />
+    <Resource Include="Images\open_safety_box.ico" />
+    <Resource Include="Images\system-help.ico" />
+    <Resource Include="Images\billboard-icon.png" />
+    <Resource Include="Images\billboard-icon-small.png" />
+    <Resource Include="Images\arrow_left.png" />
+    <Resource Include="Images\arrow_right.png" />
+    <Resource Include="Images\print_24.png" />
+    <None Include="Resources\information.png" />
+    <Content Include="arpa.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Images\trophy.png" />
+    <Resource Include="Images\cake.png" />
+    <Resource Include="Images\calculator.png" />
+    <Resource Include="Images\archive.png" />
+    <Content Include="SoggiorniDb.accdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

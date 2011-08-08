@@ -1,0 +1,9 @@
+﻿<Window x:Class="Soggiorni.TableauReportWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Report Tableau" Height="300" Width="300" WindowState="Maximized" Loaded="Window_Loaded">
+    <DockPanel>
+        <WindowsFormsHost Name="windowsFormsHost" />
+
+    </DockPanel>
+</Window>

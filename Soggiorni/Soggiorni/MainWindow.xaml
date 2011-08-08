@@ -1,0 +1,268 @@
+﻿<Window x:Class="Soggiorni.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:Soggiorni.Converters"
+        Title="Soggiorni Pianetti v. 2.0" Background="{DynamicResource sfondoWindow}" Height="700" Width="1000" WindowStartupLocation="CenterScreen" WindowStyle="SingleBorderWindow" Initialized="Window_Initialized" Loaded="Window_Loaded" ResizeMode="CanMinimize">
+    
+    <Window.Resources>
+        <local:DateConverter x:Key="dateConverter" />
+        <local:DecimalConverter x:Key="decimalConverter" />
+    </Window.Resources>
+    
+    <DockPanel LastChildFill="True">
+        <Menu IsMainMenu="True" DockPanel.Dock="Top" VerticalAlignment="Top" >
+            <MenuItem Header="_File" >
+                <MenuItem Header="_Esci" Click="MenuItemEsci_Click" >
+                    <MenuItem.Icon>
+                        <Image Source="/Soggiorni;component/Images/exit.png" />
+                    </MenuItem.Icon>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="_Clienti">
+                <MenuItem Header="_Aggiungi" IsEnabled="True" Click="MenuItemAddCliente_Click">
+                    <MenuItem.Icon>
+                        <Image Source="/Soggiorni;component/Images/user_add.png" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="Esporta dati per mail auguri (Csv)" IsEnabled="True" Click="MenuItemCsvAuguri_Click">
+                    <MenuItem.Icon>
+                        <Image Source="/Soggiorni;component/Images/cake.png" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="_Classifiche" IsEnabled="False" />
+            </MenuItem>
+            <MenuItem Header="_Soggiorni">
+                <MenuItem Header="Pre-stampato schede di notifica" IsEnabled="True" Click="MenuItemPrestampato_Click">
+                    <MenuItem.Icon>
+                        <Image  Stretch="Uniform" Source="/Soggiorni;component/Images/page_white_acrobat.ico" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="Crea file schede di notifica" IsEnabled="True" Click="MenuItemFileQuestura_Click">
+                    <MenuItem.Icon>
+                        <Image Source="/Soggiorni;component/Images/user_policeman.ico" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <Separator />
+                <MenuItem Header="Crea file presenze mensile ISTAT (automatico)" IsEnabled="True" Click="MenuItemFileIstat_Click">
+                    <MenuItem.Icon>
+                        <Image Source="/Soggiorni;component/Images/statistics_16.ico" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="Crea file presenze ISTAT (manuale)" IsEnabled="True" Click="MenuItemFileIstatManual_Click">
+                    <MenuItem.Icon>
+                        <Image Source="/Soggiorni;component/Images/page_white_edit.png" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <Separator />
+                <MenuItem Header="Disponibilità camere" IsEnabled="True" Click="MenuItemDispCam_Click">
+                    <MenuItem.Icon>
+                        <Image Source="/Soggiorni;component/Images/system-help.ico" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="Notifiche premi fedeltà" IsEnabled="True" Click="MenuItemNotPremi_Click" >
+                    <MenuItem.Icon>
+                        <Image Source="/Soggiorni;component/Images/trophy.png" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="_Statistiche" IsEnabled="False" />
+            </MenuItem>
+            <MenuItem Header="Pagamenti">
+                <MenuItem Header="Genera corrispettivi" IsEnabled="True" Click="MenuItemCorrispettivi_Click">
+                    <MenuItem.Icon>
+                        <Image Source="/Soggiorni;component/Images/cash_terminal.ico" />
+                    </MenuItem.Icon>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="?">
+                <MenuItem Header="About" Click="AboutMenuItem_Click" />
+            </MenuItem>
+            <MenuItem Header="Camere" Visibility="Hidden">
+                <MenuItem Header="_Aggiungi" IsEnabled="False" />
+                <MenuItem Header="_Elenco" IsEnabled="False" />
+            </MenuItem>
+            <MenuItem Header="Tipo Servizi" Visibility="Hidden">
+                <MenuItem Header="_Aggiungi" IsEnabled="False" />
+                <MenuItem Header="_Elenco" IsEnabled="False" />
+            </MenuItem>
+        </Menu>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50*" />
+                <ColumnDefinition Width="50*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50*" />
+                <RowDefinition Height="50*" />
+            </Grid.RowDefinitions>
+
+            <WrapPanel Orientation="Horizontal" Margin="30,30,30,11">
+                <Button Margin="0,0,0,0" Height="120"  HorizontalAlignment="Left" Name="btnAddSoggiorno" VerticalAlignment="Top" Width="120" BorderBrush="Black" Click="btnAddSoggiorno_Click">
+                    <Button.Content>
+                        <StackPanel>
+                            <Image Height="90" HorizontalAlignment="Center" Name="imgAddSoggiorno" Stretch="Fill" VerticalAlignment="Top" Width="90" Source="/Soggiorni;component/Images/add-event.ico" />
+                            <TextBlock Height="20" HorizontalAlignment="Center" Text="Nuovo soggiorno" VerticalAlignment="Top" FontSize="12" FontWeight="Bold" Foreground="#FF55241A" />
+                        </StackPanel>
+                    </Button.Content>
+                </Button>
+                <Button Margin="30,0,0,0" Height="120" HorizontalAlignment="Center" Name="btnTableau" VerticalAlignment="Top" Width="120" Click="btnTableau_Click">
+                    <Button.Content>
+                        <StackPanel>
+                            <Image Height="90" Stretch="Fill" HorizontalAlignment="Center" Name="imgTableau" Source="/Soggiorni;component/Images/billboard-icon.png" VerticalAlignment="Top" Width="90" />
+                            <TextBlock FontSize="12" FontWeight="Bold" Foreground="#FF55241A" Height="20" HorizontalAlignment="Center" Text="Tableau" VerticalAlignment="Top" />
+                        </StackPanel>
+                    </Button.Content>
+                </Button>
+                <Button Height="120" Margin="30,0,0,0" Name="btnNewPagamento" Width="120" Click="btnNewPagamento_Click">
+                    <StackPanel>
+                        <Image Height="90" HorizontalAlignment="Center" Name="image1" Source="/Soggiorni;component/Images/piggy_bank2.ico" Stretch="Fill" VerticalAlignment="Top" Width="90" />
+                        <TextBlock FontSize="12" FontWeight="Bold" Foreground="#FF55241A" Height="20" HorizontalAlignment="Center" Text="Nuovo Pagamento" VerticalAlignment="Top" />
+                    </StackPanel>
+                </Button>
+                <Button Margin="0,40,0,0" Height="120" HorizontalAlignment="Left"  Name="btnSearchSoggiorno" VerticalAlignment="Top" Width="120" Click="btnSearchSoggiorno_Click">
+                    <Button.Content>
+                        <StackPanel>
+                            <Image Height="90" HorizontalAlignment="Center" Name="imgSearchSoggiorno" Stretch="Fill" VerticalAlignment="Top" Width="90" Source="/Soggiorni;component/Images/event-search.ico" />
+                            <TextBlock Height="20" HorizontalAlignment="Center" Text="Cerca Soggiorno" VerticalAlignment="Top" FontSize="12" FontWeight="Bold" Foreground="#FF55241A" />
+                        </StackPanel>
+                    </Button.Content>
+                </Button>
+                
+                
+                
+                <Button Margin="30,40,0,0" Height="120" HorizontalAlignment="Left" Name="btnSearchCliente" Width="120" VerticalAlignment="Top" Click="btnSearchCliente_Click">
+                    <Button.Content>
+                        <StackPanel>
+                            <Image Height="90" HorizontalAlignment="Center" Name="imgSearchCliente" Stretch="Fill" VerticalAlignment="Top" Width="90" Source="/Soggiorni;component/Images/contacts.ico" />
+                            <TextBlock Height="20" HorizontalAlignment="Center" Text="Cerca cliente" VerticalAlignment="Top" FontSize="12" FontWeight="Bold" Foreground="#FF55241A" />
+                        </StackPanel>
+                    </Button.Content>
+                </Button>
+                <Button Height="120" Margin="30,40,0,0" Name="btnSearchPagamento" Width="120" Click="btnSearchPagamento_Click">
+                    <StackPanel>
+                        <Image Height="90" HorizontalAlignment="Center" Name="image2" Source="/Soggiorni;component/Images/open_safety_box.ico" Stretch="Fill" VerticalAlignment="Top" Width="90" />
+                        <TextBlock FontSize="12" FontWeight="Bold" Foreground="#FF55241A" Height="20" HorizontalAlignment="Center" Text="Cerca Pagamento" VerticalAlignment="Top" />
+                    </StackPanel>
+                </Button>
+            </WrapPanel>
+
+            <StackPanel Grid.Row="0" Grid.Column="1">
+                <TextBlock Margin="20,30,20,0" Height="39" HorizontalAlignment="Left"  Name="textBlock1" Text="Soggiorni in corso" VerticalAlignment="Top" Width="445" FontSize="28" FontFamily="Trajan Pro" FontStyle="Normal" TextAlignment="Center" FontWeight="Bold" Foreground="#FF835832"></TextBlock>
+                <DataGrid FrozenColumnCount="1" AutoGenerateColumns="False" Height="240" Name="dataGridCurrent" Width="445" ItemsSource="{Binding}" AlternatingRowBackground="#FFFFE7B1" GridLinesVisibility="Vertical" HorizontalGridLinesBrush="Black" VerticalGridLinesBrush="#FFD8D8D8" HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="13" IsReadOnly="True" HeadersVisibility="Column" BorderBrush="#FF688CAF" SelectionMode="Single" CanUserReorderColumns="False" Foreground="#FF717171" IsSynchronizedWithCurrentItem="False" CanUserSortColumns="False" MouseDoubleClick="dataGridCurrent_MouseDoubleClick">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Cliente" Binding="{Binding Cliente.Cognome}" />
+                        <DataGridTextColumn Header="Partenza" Binding="{Binding Partenza, Converter={StaticResource dateConverter}, ConverterParameter=dd/MM/yyyy}" />
+                        <DataGridTextColumn Header="Camera" Binding="{Binding Camera.Numero}" />
+                        <DataGridTextColumn Header="Agriturismo" Binding="{Binding Camera.Agriturismo}" />
+                        <DataGridTextColumn Header="Totale" Binding="{Binding TotaleSoggiorno, Converter={StaticResource decimalConverter}}" />
+                    </DataGrid.Columns>
+                    <DataGrid.CellStyle>
+                        <Style TargetType="{x:Type DataGridCell}">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type DataGridCell}"> 
+                                        <Grid Margin="5" Background="{TemplateBinding Background}">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                        </Grid>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            
+                        </Style>
+                    </DataGrid.CellStyle>
+                </DataGrid>
+            </StackPanel>
+
+            <StackPanel Grid.Row="1" Grid.Column="1">
+                <TextBlock Margin="20,10,20,0" Height="39" HorizontalAlignment="Left"  Name="txtNext" Text="Soggiorni prossimo mese" VerticalAlignment="Top" Width="445" FontSize="28" FontFamily="Trajan Pro" FontStyle="Normal" TextAlignment="Center" FontWeight="Bold" Foreground="#FF835832"></TextBlock>
+                <DataGrid AutoGenerateColumns="False" Height="240" Name="dataGridNext" Width="445" ItemsSource="{Binding}" AlternatingRowBackground="#FFFFE7B1" GridLinesVisibility="Vertical" HorizontalGridLinesBrush="Black" VerticalGridLinesBrush="#FFD8D8D8" HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="13" IsReadOnly="True" HeadersVisibility="Column" BorderBrush="#FF688CAF" SelectionMode="Single" CanUserReorderColumns="False" Foreground="#FF717171" IsSynchronizedWithCurrentItem="False" CanUserSortColumns="False" MouseDoubleClick="dataGridNext_MouseDoubleClick">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Arrivo" Binding="{Binding Arrivo, Converter={StaticResource dateConverter}, ConverterParameter=dd/MM/yyyy}" />
+                        <DataGridTextColumn Header="Partenza" Binding="{Binding Partenza, Converter={StaticResource dateConverter}, ConverterParameter=dd/MM/yyyy}" />
+                        <DataGridTextColumn Header="Cliente" Binding="{Binding Cliente.Cognome}" />
+                        <DataGridCheckBoxColumn Header="Confermata ?" Binding="{Binding Confermato}" />
+                        <DataGridTextColumn Header="Camera" Binding="{Binding Camera.Numero}" />
+                        <DataGridTextColumn Header="Agriturismo" Binding="{Binding Camera.Agriturismo}" />
+                    </DataGrid.Columns>
+                    <DataGrid.CellStyle>
+                        <Style TargetType="{x:Type DataGridCell}">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type DataGridCell}">
+                                        <Grid Margin="5" Background="{TemplateBinding Background}">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                        </Grid>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+
+                        </Style>
+                    </DataGrid.CellStyle>
+                </DataGrid>
+            </StackPanel>
+            
+            <GroupBox Grid.Row="1" Height="279" Margin="24,10,30,0" Name="groupBox1" VerticalAlignment="Top" FontSize="28" FontFamily="Trajan Pro" Foreground="White" BorderBrush="White" BorderThickness="2">
+                <GroupBox.Header>
+                    <TextBlock Text="Oggi" Foreground="White" />
+                </GroupBox.Header>
+                <Grid>
+                    
+                    <DataGrid ItemsSource="{Binding}" AutoGenerateColumns="False" Height="208" HorizontalAlignment="Left" Margin="5,23,0,0" Name="dataGridArriviOggi" VerticalAlignment="Top" Width="200" HeadersVisibility="Column" FontSize="12" FontFamily="Segoe UI" Foreground="#FF717171" GridLinesVisibility="Vertical" VerticalGridLinesBrush="#FFD8D8D8" AlternatingRowBackground="#FFFFE7B1" SelectionMode="Single" IsSynchronizedWithCurrentItem="False" IsReadOnly="True" CanUserSortColumns="False" MouseDoubleClick="dataGridArriviOggi_MouseDoubleClick">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Camera" Binding="{Binding Camera.Numero}" />
+                            <DataGridTextColumn Header="Cliente" Binding="{Binding Cliente.Cognome}" />
+                            <DataGridCheckBoxColumn Header="Check-In ?" Binding="{Binding IsCheckedIn}" />
+                        </DataGrid.Columns>
+                        <DataGrid.CellStyle>
+                            <Style TargetType="{x:Type DataGridCell}">
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="{x:Type DataGridCell}">
+                                            <Grid Margin="2" Background="{TemplateBinding Background}">
+                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                            </Grid>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+
+                            </Style>
+                        </DataGrid.CellStyle>
+                    </DataGrid>
+                    
+                    
+                    <DataGrid ItemsSource="{Binding}" AutoGenerateColumns="False" Height="208" HorizontalAlignment="Left" Margin="210,23,0,0" Name="dataGridPartenzeOggi" VerticalAlignment="Top" Width="200" FontSize="12" FontFamily="Segoe UI" Foreground="#FF717171" GridLinesVisibility="Vertical" VerticalGridLinesBrush="#FFD8D8D8" AlternatingRowBackground="#FFFFE7B1" SelectionMode="Single" IsSynchronizedWithCurrentItem="False" HeadersVisibility="Column" IsReadOnly="True" CanUserSortColumns="False" MouseDoubleClick="dataGridPartenzeOggi_MouseDoubleClick">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Camera" Binding="{Binding Camera.Numero}" />
+                            <DataGridTextColumn Header="Cliente" Binding="{Binding Cliente.Cognome}" />
+                            <DataGridCheckBoxColumn Header="Check-Out ?" Binding="{Binding IsCheckedOut}" />
+                        </DataGrid.Columns>
+                        <DataGrid.CellStyle>
+                            <Style TargetType="{x:Type DataGridCell}">
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="{x:Type DataGridCell}">
+                                            <Grid Margin="2" Background="{TemplateBinding Background}">
+                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                            </Grid>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+
+                            </Style>
+                        </DataGrid.CellStyle>
+                    </DataGrid>
+                    
+                    <TextBlock FontFamily="Trajan Pro" FontSize="14" Foreground="#FF835832" Height="23" HorizontalAlignment="Left" Margin="5,4,0,0" Name="textBlock3" Text="Arrivi" TextAlignment="Center" VerticalAlignment="Top" Width="201" />
+                    <TextBlock Height="23" HorizontalAlignment="Left" Margin="210,4,0,0" Name="textBlock2" Text="Partenze" VerticalAlignment="Top" Width="200" FontFamily="Trajan Pro" Foreground="#FF835832" FontSize="14" TextAlignment="Center" />
+                    
+                        
+                    
+                </Grid>
+            </GroupBox>
+            
+        </Grid>
+            
+            
+        
+    </DockPanel>
+</Window>

@@ -1,0 +1,53 @@
+﻿<Window x:Class="Soggiorni.EditSchedinaClienteWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Modifica dati cliente per schedina" Background="{DynamicResource sfondoWindow}" Height="641" Width="397" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <TextBlock FontFamily="Segoe UI" FontSize="14" FontWeight="Normal" Foreground="Black" Height="23" HorizontalAlignment="Left" Margin="34,44,0,0" Name="txtCognome" Text="Cognome" VerticalAlignment="Top" />
+        <TextBox FontFamily="Segoe UI" FontSize="12" FontWeight="Normal" Height="23" HorizontalAlignment="Left" IsEnabled="True" Margin="134,44,0,0" Name="txtboxCognome" VerticalAlignment="Top" Width="163" TabIndex="1" />
+        <TextBlock FontFamily="Segoe UI" FontSize="14" FontWeight="Normal" Foreground="Black" Height="23" HorizontalAlignment="Left" Margin="34,73,0,0" Name="txtNome" Text="Nome" VerticalAlignment="Top" />
+        <TextBox FontFamily="Segoe UI" FontSize="12" FontWeight="Normal" Height="23" HorizontalAlignment="Left" IsEnabled="True" Margin="134,73,0,0" Name="txtboxNome" VerticalAlignment="Top" Width="163" TabIndex="2" />
+        <TextBlock FontFamily="Segoe UI" FontSize="14" FontWeight="Normal" Height="23" HorizontalAlignment="Left" Margin="34,283,0,0" Name="txtAddr" Text="Indirizzo" VerticalAlignment="Top" />
+        <TextBox FontFamily="Segoe UI" FontSize="12" FontWeight="Normal" Height="23" HorizontalAlignment="Left" IsEnabled="True" Margin="134,281,0,0" Name="txtboxAddr" VerticalAlignment="Top" Width="163" TabIndex="9" />
+        <StackPanel Height="52" HorizontalAlignment="Left" Margin="134,100,0,0" Name="stackPanelSesso" Orientation="Vertical" VerticalAlignment="Top" Width="163">
+            <RadioButton Content="M" GroupName="Sesso" Height="16" IsChecked="True" Margin="0,5,0,0" Name="radioButtonM" TabIndex="3" />
+            <RadioButton Content="F" GroupName="Sesso" Height="16" Margin="0,10,0,0" Name="radioButtonF" TabIndex="4" />
+        </StackPanel>
+        <TextBlock FontFamily="Segoe UI" FontSize="14" FontWeight="Normal" Foreground="Black" Height="23" HorizontalAlignment="Left" Margin="34,101,0,0" Name="txtSesso" Text="Sesso                    " VerticalAlignment="Top" Width="38" />
+        <TextBlock FontFamily="Segoe UI" FontSize="14" FontWeight="Normal" Foreground="Black" Height="23" HorizontalAlignment="Left" Margin="34,168,0,0" Name="txtDataNascita" Text="Data nascita" VerticalAlignment="Top" />
+        <DatePicker Height="25" HorizontalAlignment="Left" Margin="134,165,0,0" Name="datePickerNascita" VerticalAlignment="Top" Width="163" TabIndex="5" />
+        <TextBlock FontFamily="Segoe UI" FontSize="14" FontWeight="Normal" Foreground="Black" Height="23" HorizontalAlignment="Left" Margin="34,197,0,0" Name="txtComuneNascita" Text="Comune nasc." VerticalAlignment="Top" />
+        <TextBox Background="Silver" FontFamily="Segoe UI" FontSize="12" FontWeight="Normal" Height="23" HorizontalAlignment="Left" IsEnabled="True" IsReadOnly="True" Margin="134,196,0,0" Name="txtboxComuneNascita" VerticalAlignment="Top" Width="163" IsTabStop="False" />
+        <TextBlock FontFamily="Segoe UI" FontSize="14" FontWeight="Normal" Foreground="Black" Height="23" HorizontalAlignment="Left" Margin="34,226,0,0" Name="txtStatoNascita" Text="Stato nascita" VerticalAlignment="Top" />
+        <TextBox Background="Silver" FontFamily="Segoe UI" FontSize="12" FontWeight="Normal" Height="23" HorizontalAlignment="Left" IsEnabled="True" Margin="134,225,0,0" Name="txtboxStatoNascita" VerticalAlignment="Top" Width="163" IsTabStop="False" />
+        <Button Content="..." HorizontalAlignment="Left" Margin="303,196,0,0" Name="btnSelectComuneNascita" Width="28" Click="btnSelectComuneNascita_Click" TabIndex="6" Height="23" VerticalAlignment="Top" />
+        <Button Content="..." Height="23" HorizontalAlignment="Left" Margin="303,225,0,0" Name="btnSelectStatoNascita" VerticalAlignment="Top" Width="28" Click="btnSelectStatoNascita_Click" TabIndex="7" />
+        <TextBlock FontFamily="Segoe UI" FontSize="14" FontWeight="Normal" Foreground="Black" Height="23" HorizontalAlignment="Left" Margin="34,255,0,0" Name="txtCittadinanza" Text="Cittadinanza" VerticalAlignment="Top" />
+        <TextBox Background="Silver" FontFamily="Segoe UI" FontSize="12" FontWeight="Normal" Height="23" HorizontalAlignment="Left" IsEnabled="True" Margin="134,254,0,0" Name="txtboxCittadinanza" VerticalAlignment="Top" Width="163" IsTabStop="False" />
+        <Button Content="..." Height="23" HorizontalAlignment="Left" Margin="303,254,0,0" Name="btnSelectCittadinanza" VerticalAlignment="Top" Width="28" Click="btnSelectCittadinanza_Click" TabIndex="8" />
+        <TextBlock FontFamily="Segoe UI" FontSize="14" FontWeight="Normal" Foreground="Black" Height="23" HorizontalAlignment="Left" Margin="34,314,0,0" Name="txtComuneResid" Text="Comune resid." VerticalAlignment="Top" />
+        <TextBox Background="Silver" FontFamily="Segoe UI" FontSize="12" FontWeight="Normal" Height="23" HorizontalAlignment="Left" IsEnabled="True" IsReadOnly="True" Margin="134,311,0,0" Name="txtboxComuneResid" VerticalAlignment="Top" Width="163" IsTabStop="False" />
+        <TextBlock FontFamily="Segoe UI" FontSize="14" FontWeight="Normal" Foreground="Black" Height="23" HorizontalAlignment="Left" Margin="34,346,0,0" Name="txtStatoResid" Text="Stato residenza" VerticalAlignment="Top" />
+        <TextBox Background="Silver" FontFamily="Segoe UI" FontSize="12" FontWeight="Normal" Height="23" HorizontalAlignment="Left" IsEnabled="True" Margin="134,344,0,0" Name="txtboxStatoResid" VerticalAlignment="Top" Width="163" IsTabStop="False" />
+        <Button Content="..." HorizontalAlignment="Left" Margin="303,312,0,0" Name="btnSelectComuneResid" Width="28" Click="btnSelectComuneResid_Click" TabIndex="10" Height="23" VerticalAlignment="Top" />
+        <Button Content="..." Height="23" HorizontalAlignment="Left" Margin="303,345,0,0" Name="btnSelectStatoResid" VerticalAlignment="Top" Width="28" Click="btnSelectStatoResid_Click" TabIndex="11" />
+        <TextBlock FontFamily="Segoe UI" FontSize="14" FontWeight="Normal" Foreground="Black" Height="23" HorizontalAlignment="Left" Margin="34,403,0,0" Name="txtTipoDoc" Text="Tipo docum." VerticalAlignment="Top" />
+        <ComboBox DisplayMemberPath="Descrizione" Height="23" HorizontalAlignment="Left" ItemsSource="{Binding}" Margin="134,402,0,0" Name="cbxTipoDoc" SelectedValuePath="Id" VerticalAlignment="Top" Width="197" TabIndex="13" />
+        <TextBlock FontFamily="Segoe UI" FontSize="14" FontWeight="Normal" Height="23" HorizontalAlignment="Left" Margin="34,432,0,0" Name="txtNumDoc" Text="N° documento" VerticalAlignment="Top" />
+        <TextBox FontFamily="Segoe UI" FontSize="12" FontWeight="Normal" Height="23" HorizontalAlignment="Left" IsEnabled="True" Margin="134,431,0,0" Name="txtboxNumDoc" VerticalAlignment="Top" Width="163" TabIndex="14" />
+        <TextBlock FontFamily="Segoe UI" FontSize="14" FontWeight="Normal" Foreground="Black" Height="23" HorizontalAlignment="Left" Margin="32,461,0,0" Name="txtDataRilascioDoc" Text="Data rilascio" VerticalAlignment="Top" />
+        <DatePicker Height="25" HorizontalAlignment="Left" Margin="134,460,0,0" Name="datePickerRilascioDoc" VerticalAlignment="Top" Width="163" TabIndex="15" />
+        <TextBlock FontFamily="Segoe UI" FontSize="14" FontWeight="Normal" Foreground="Black" Height="23" HorizontalAlignment="Left" Margin="32,492,0,0" Name="txtComuneRilascioDoc" Text="Comune rilascio" VerticalAlignment="Top" />
+        <TextBox Background="Silver" FontFamily="Segoe UI" FontSize="12" FontWeight="Normal" Height="23" HorizontalAlignment="Left" IsEnabled="True" IsReadOnly="True" Margin="134,491,0,0" Name="txtboxComuneRilascioDoc" VerticalAlignment="Top" Width="163" IsTabStop="False" />
+        <TextBlock FontFamily="Segoe UI" FontSize="14" FontWeight="Normal" Foreground="Black" Height="23" HorizontalAlignment="Left" Margin="32,521,0,0" Name="txtStatoRilascioDoc" Text="Stato rilascio" VerticalAlignment="Top" />
+        <TextBox Background="Silver" FontFamily="Segoe UI" FontSize="12" FontWeight="Normal" Height="23" HorizontalAlignment="Left" IsEnabled="True" Margin="134,520,0,0" Name="txtboxStatoRilascioDoc" VerticalAlignment="Top" Width="163" IsTabStop="False" />
+        <Button Content="..." HorizontalAlignment="Left" Margin="303,491,0,0" Name="btnSelectComuneRilascioDoc" Width="28" Click="btnSelectComuneRilascioDoc_Click" TabIndex="16" Height="23" VerticalAlignment="Top" />
+        <Button Content="..." Height="23" HorizontalAlignment="Left" Margin="303,520,0,0" Name="btnSelectStatoRilascioDoc" VerticalAlignment="Top" Width="28" Click="btnSelectStatoRilascioDoc_Click" TabIndex="17" />
+        <TextBlock FontFamily="Segoe UI" FontSize="14" FontWeight="Normal" Foreground="Black" Height="23" HorizontalAlignment="Left" Margin="34,374,0,0" Name="txtProvIstat" Text="Prov. ISTAT" VerticalAlignment="Top" />
+        <TextBox Background="Silver" FontFamily="Segoe UI" FontSize="12" FontWeight="Normal" Height="23" HorizontalAlignment="Left" IsEnabled="True" Margin="134,373,0,0" Name="txtboxProvIstat" VerticalAlignment="Top" Width="163" IsTabStop="False" />
+        <Button Content="..." Height="23" HorizontalAlignment="Left" Margin="303,373,0,0" Name="btnSelectProvIstat" VerticalAlignment="Top" Width="28" Click="btnSelectProvIstat_Click" TabIndex="12" />
+        <Button Height="31" HorizontalAlignment="Left" Margin="222,566,0,0" Name="btnAnnulla" VerticalAlignment="Top" Width="75" Content="Annulla" Click="btnAnnulla_Click" FontSize="14" TabIndex="19" />
+        <Button Content="Salva" Height="31" HorizontalAlignment="Left" Margin="134,566,0,0" Name="btnSalva" VerticalAlignment="Top" Width="82" Click="btnSalva_Click" FontSize="14" TabIndex="18" />
+        <TextBlock Height="27" HorizontalAlignment="Left" Margin="34,0,0,0" Name="textBlock1" Text="I dati sono tutti obbligatori" VerticalAlignment="Top" FontSize="20" Width="263" FontStyle="Normal" FontWeight="Normal" TextDecorations="Underline" TextAlignment="Center"/>
+    </Grid>
+</Window>

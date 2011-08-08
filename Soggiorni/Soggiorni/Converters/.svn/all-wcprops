@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/soggiornipianetti/!svn/ver/2/Soggiorni/Converters
+END
+DateConverter.cs
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/soggiornipianetti/!svn/ver/18/Soggiorni/Converters/DateConverter.cs
+END
+DecimalConverter.cs
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/soggiornipianetti/!svn/ver/2/Soggiorni/Converters/DecimalConverter.cs
+END
+BoolFatturaConverter.cs
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/soggiornipianetti/!svn/ver/87/Soggiorni/Converters/BoolFatturaConverter.cs
+END

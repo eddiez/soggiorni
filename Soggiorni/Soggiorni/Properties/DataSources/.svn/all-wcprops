@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/soggiornipianetti/!svn/ver/35/Soggiorni/Properties/DataSources
+END
+Soggiorni.Model.VocePagamento.datasource
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/soggiornipianetti/!svn/ver/89/Soggiorni/Properties/DataSources/Soggiorni.Model.VocePagamento.datasource
+END
+Soggiorni.Model.CorrispettivoGiorno.datasource
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/soggiornipianetti/!svn/ver/89/Soggiorni/Properties/DataSources/Soggiorni.Model.CorrispettivoGiorno.datasource
+END
+SchedinaReportItem.datasource
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/soggiornipianetti/!svn/ver/35/Soggiorni/Properties/DataSources/SchedinaReportItem.datasource
+END
+Soggiorni.Model.Pagamento.datasource
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/soggiornipianetti/!svn/ver/89/Soggiorni/Properties/DataSources/Soggiorni.Model.Pagamento.datasource
+END
+Soggiorni.Model.TableauPivot.datasource
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/soggiornipianetti/!svn/ver/89/Soggiorni/Properties/DataSources/Soggiorni.Model.TableauPivot.datasource
+END

@@ -1,0 +1,9 @@
+D:\Siti, sw mio\Soggiorni\codice\Soggiorni\TestSoggiorni\bin\Debug\prestampato schedine.pdf
+D:\Siti, sw mio\Soggiorni\codice\Soggiorni\TestSoggiorni\bin\Debug\SoggiorniDb.accdb
+D:\Siti, sw mio\Soggiorni\codice\Soggiorni\TestSoggiorni\bin\Debug\TestSoggiorni.dll
+D:\Siti, sw mio\Soggiorni\codice\Soggiorni\TestSoggiorni\bin\Debug\TestSoggiorni.pdb
+D:\Siti, sw mio\Soggiorni\codice\Soggiorni\TestSoggiorni\bin\Debug\Soggiorni.exe
+D:\Siti, sw mio\Soggiorni\codice\Soggiorni\TestSoggiorni\bin\Debug\Soggiorni.pdb
+D:\Siti, sw mio\Soggiorni\codice\Soggiorni\TestSoggiorni\obj\Debug\ResolveAssemblyReference.cache
+D:\Siti, sw mio\Soggiorni\codice\Soggiorni\TestSoggiorni\obj\Debug\TestSoggiorni.dll
+D:\Siti, sw mio\Soggiorni\codice\Soggiorni\TestSoggiorni\obj\Debug\TestSoggiorni.pdb

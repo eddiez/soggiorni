@@ -1,0 +1,126 @@
+﻿Query nei dataset:
+
+Cliete.GetDataById(ID):
+SELECT ID, Nome, Cognome, IsFemmina, Indirizzo, ComuneResid, StatoResid, Telefoni, Descrizione, Email, DataNascita, ComuneNascita, StatoNascita, StatoCittadinanza, TipoDocumento, NumDocumento, DataRilascioDoc, ComuneRilascioDoc, StatoRilascioDoc, ProvenienzaIstat 
+FROM Cliente
+WHERE (ID=?)
+
+Cliente.UpdateById(ID, ...)
+UPDATE `Cliente` SET `Nome` = ?, `Cognome` = ?, `IsFemmina` = ?, `Indirizzo` = ?, `ComuneResid` = ?, `StatoResid` = ?, `Telefoni` = ?, `Descrizione` = ?, `Email` = ?, `DataNascita` = ?, `ComuneNascita` = ?, `StatoNascita` = ?, `StatoCittadinanza` = ?, `TipoDocumento` = ?, `NumDocumento` = ?, `DataRilascioDoc` = ?, `ComuneRilascioDoc` = ?, `StatoRilascioDoc` = ?, `ProvenienzaIstat` = ? 
+WHERE (`ID` = ?)
+
+Cliente.UpdateEssentialById
+UPDATE `Cliente` 
+SET `Nome` = ?, `Cognome` = ?, `Telefoni` = ?, `Descrizione` = ?, `Email` = ? 
+WHERE (`ID` = ?)
+
+Soggiorno.DeleteById(ID):
+DELETE FROM `Soggiorno` 
+WHERE (`ID` = ?)
+
+ServiziSoggiorno.DeleteByIdSoggiorno(idSog):
+DELETE FROM `ServiziSoggiorno` 
+WHERE (`Soggiorno` = ?)
+
+Soggiorno.UpdateById(ID):
+UPDATE `Soggiorno` SET `Arrivo` = ?, `Partenza` = ?, `ClienteId` = ?, `CameraId` = ?, `UsoCamera` = ?, `PrezzoANotteCamera` = ?, `Caparra` = ?, `NoteCaparra` = ?, `TotaleSoggiorno` = ?, `NoteSaldoSoggiorno` = ?, `NoteDurataSoggiorno` = ?, `TotaleCamera` = ?, `NomePrenotante` = ?, `Confermato` = ?, `NoteNumeroOspiti` = ?, `IsCheckedIn` = ?, `IsCheckedOut` = ?, `PagamentoId` = ? 
+WHERE (`ID` = ?)
+
+Cliente.DeleteById(ID):
+DELETE FROM `Cliente` 
+WHERE (`ID` = ?)
+
+SchedaNotifica.GetDataByCliente(idcl):
+SELECT ID, Numero, Anno, Soggiorno, Cliente 
+FROM SchedaNotifica
+WHERE (Cliente = ?)
+
+Comune.GetDataById(ID)
+SELECT ID, CodicePolizia, Nome, Provincia, DataCessazione 
+FROM Comune
+WHERE (ID=?)
+
+Stato.GetDataById(ID)
+SELECT ID, CodicePolizia, Nome 
+FROM Stato
+WHERE (ID=?)
+
+ProvenienzaIstat.GetDataById(ID)
+SELECT ID, Regione, Stato, SiglaTuriweb 
+FROM ProvenienzaIstat
+WHERE (ID=?)
+
+SchedaNotifica.DeleteBySoggiorno(idsog):
+DELETE FROM `SchedaNotifica` 
+WHERE (`Soggiorno` = ?)
+
+TipoDocumento.GetData
+SELECT ID, CodicePolizia, Descrizione FROM TipoDocumento ORDER BY Descrizione
+
+Cliente.GetNomeCognomeById(ID)
+SELECT ID, Nome, Cognome
+FROM Cliente
+WHERE (ID=?)
+
+Servizi.GetData()
+SELECT ID, Nome, PrezzoListino FROM Servizio ORDER BY Nome
+
+TipoDocumento.GetDataById(id):
+SELECT ID, CodicePolizia, Descrizione 
+FROM TipoDocumento 
+WHERE (ID=?)
+
+Pagamento.GetDataById()
+SELECT ID, IsFattura, Numero, Data, Totale, Imponibile, ModoPagamento, Destinatario, Sede, Piva, CF 
+FROM Pagamento
+WHERE ID = ?
+
+Pagamento.UpdateById()
+UPDATE `Pagamento` SET `IsFattura` = ?, `Numero` = ?, `Data` = ?, `Totale` = ?, `Imponibile` = ?, `ModoPagamento` = ?, `Destinatario` = ?, `Sede` = ?, `Piva` = ?, `CF` = ? 
+WHERE (`ID` = ?)
+
+AltraAttivita.GetDataByPagamento
+SELECT ID, Data, NomeInFattura, TotaleIvato, Imponibile, Descrizione, PagamentoId 
+FROM AltreAttivita
+WHERE PagamentoId=?
+
+Soggiorni.GetDataByPagamento
+SELECT        ID, Arrivo, Partenza, ClienteId, CameraId, TotaleSoggiorno, TotaleCamera
+FROM            Soggiorno
+WHERE        (IsCheckedOut = true) AND (PagamentoId = ?)
+
+Camera.GetDataById
+SELECT ID, Numero, Nome, Agriturismo, Foto, Tipo, Bagno 
+FROM Camera
+WHERE ID=?
+
+Soggiorno.UpdateStatoPagamentoById
+UPDATE `Soggiorno` SET  `IsCheckedOut` = ?, `PagamentoId` = ? 
+WHERE (`ID` = ?)
+
+AltreAttivita.DeleteByPagamento
+DELETE FROM `AltreAttivita` 
+WHERE (PagamentoId = ?)
+
+Pagamento.DeleteById
+DELETE FROM `Pagamento` 
+WHERE (`ID` = ?)
+
+Camera.GetData
+SELECT ID, Numero, Nome, Agriturismo, Foto, Tipo, Bagno 
+FROM Camera
+ORDER BY Numero
+
+Soggiorni.QueryNumSoggiorniByPagamento
+SELECT COUNT(*) 
+FROM Soggiorno
+WHERE PagamentoId = ?
+
+AltreAttività.QueryAttivitaByPagamento
+SELECT COUNT(*) 
+FROM AltreAttivita
+WHERE PagamentoId = ?
+
+Cliente.GetDataForMailAuguri
+SELECT Nome, Cognome, Email, DataNascita
+FROM Cliente

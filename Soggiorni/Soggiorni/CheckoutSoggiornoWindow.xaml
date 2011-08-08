@@ -1,0 +1,48 @@
+﻿<Window x:Class="Soggiorni.CheckoutSoggiornoWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Checkout Soggiorno" Height="515" Width="400" Background="{DynamicResource sfondoWindow}" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Button Height="31" HorizontalAlignment="Left" Margin="12,25,0,0" Name="btnNewPagamento" VerticalAlignment="Top" Width="150" Click="btnNewPagamento_Click">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="/Soggiorni;component/Images/1297203264_piggy_bank.ico" Stretch="None" />
+                <TextBlock Margin="5,0,0,0" Text="Nuovo pagamento" />
+            </StackPanel>
+        </Button>
+        <Button Height="31" HorizontalAlignment="Left" Margin="188,25,0,0" Name="btnPagamEsist" VerticalAlignment="Top" Width="150" Click="btnPagamEsist_Click">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="/Soggiorni;component/Images/find.png" Stretch="None" />
+                <TextBlock Margin="5,0,0,0" Text="Aggiungi a pagamento" />
+            </StackPanel>
+        </Button>
+        <Grid Margin="0,80,0,0" Name="gridDatiPag" Height="345" VerticalAlignment="Top">
+            <StackPanel Orientation="Horizontal" Height="48" Name="stackPanelTipo" VerticalAlignment="Top" HorizontalAlignment="Left" Width="398" Background="#FF8D4600">
+                <RadioButton GroupName="tipoPagamento" IsChecked="True" Margin="60,0,0,0" Content="Fattura" Height="16" Name="radioButtonFatt" FontWeight="Bold" Foreground="#FFFFFFC1" Checked="radioButtonFatt_Checked" />
+                <RadioButton GroupName="tipoPagamento" Margin="85,0,0,0" Content="Ricevuta Fiscale" Height="16" Name="radioButtonRicFisc" FontWeight="Bold" Foreground="#FFFFFFC1" Checked="radioButtonRicFisc_Checked" />
+            </StackPanel>
+            <TextBox Height="30" HorizontalAlignment="Left" Margin="90,96,0,0" Name="txtboxNum" VerticalAlignment="Top" Width="52" FontSize="16" />
+            <TextBlock Height="30" HorizontalAlignment="Left" Margin="12,99,0,0" Name="txtNum" Text="Numero" VerticalAlignment="Top" FontSize="16" FontWeight="Normal" />
+            <DatePicker Height="30" HorizontalAlignment="Left" Margin="211,96,0,0" Name="datePickerData" VerticalAlignment="Top" Width="127" FontSize="16" SelectedDateChanged="datePickerData_SelectedDateChanged" />
+            <TextBlock FontSize="16" FontWeight="Normal" Height="30" HorizontalAlignment="Left" Margin="156,100,0,0" Name="txtData" Text="Data" VerticalAlignment="Top" />
+            <TextBox Height="26" HorizontalAlignment="Left" Margin="156,139,0,0" Name="txtboxDest" VerticalAlignment="Top" Width="182" FontSize="14" />
+            <TextBlock Height="23" HorizontalAlignment="Left" Margin="12,142,0,0" Name="txtDest" Text="Destinatario" VerticalAlignment="Top" FontSize="14" />
+            <TextBox FontSize="14" Height="26" HorizontalAlignment="Left" Margin="156,176,0,0" Name="txtboxSede" VerticalAlignment="Top" Width="182" />
+            <TextBlock FontSize="14" Height="23" HorizontalAlignment="Left" Margin="12,179,0,0" Name="txtSede" Text="Indirizzo sede/resid." VerticalAlignment="Top" />
+            <TextBox FontSize="14" Height="26" HorizontalAlignment="Left" Margin="156,214,0,0" Name="txtboxPiva" VerticalAlignment="Top" Width="182" />
+            <TextBlock FontSize="14" Height="23" HorizontalAlignment="Left" Margin="12,217,0,0" Name="txtPiva" Text="Partita IVA" VerticalAlignment="Top" />
+            <TextBox FontSize="14" Height="26" HorizontalAlignment="Left" Margin="156,253,0,0" Name="txtboxCf" VerticalAlignment="Top" Width="182" />
+            <TextBlock FontSize="14" Height="23" HorizontalAlignment="Left" Margin="12,256,0,0" Name="txtCf" Text="Codice Fiscale" VerticalAlignment="Top" />
+            <TextBox FontSize="14" Height="26" HorizontalAlignment="Left" Margin="156,292,0,0" Name="txtboxNote" VerticalAlignment="Top" Width="182" />
+            <TextBlock FontSize="14" Height="23" HorizontalAlignment="Left" Margin="12,295,0,0" Name="txtNote" Text="Note pagamento" VerticalAlignment="Top" />
+            <TextBlock Height="23" HorizontalAlignment="Left" Margin="12,53,0,0" Name="txtLastFattura" Text="" VerticalAlignment="Top" FontSize="12" Foreground="#BC8D4600" />
+            <TextBlock FontSize="12" Height="23" HorizontalAlignment="Left" Margin="12,71,0,0" Name="txtLastRicFisc" Text="" VerticalAlignment="Top" Foreground="#BC8D4600" />
+            <Button Height="26" HorizontalAlignment="Left" Margin="344,253,0,0" Name="btnCFCalc" Click="btnCFCalc_Click" VerticalAlignment="Top" Width="34">
+                <Image Source="/Soggiorni;component/Images/calculator.png" />
+            </Button>
+        </Grid>
+        <Button Content="Salva" Height="31" HorizontalAlignment="Left" Margin="248,441,0,0" Name="btnSalva" VerticalAlignment="Top" Width="90" Click="btnSalva_Click" />
+        <Button Content="Dissocia" Height="31" HorizontalAlignment="Left" Margin="12,441,0,0" Name="btnDissocia" VerticalAlignment="Top" Width="90" Click="btnDissocia_Click" />
+        <Separator BorderBrush="Black" BorderThickness="2" Height="5" HorizontalAlignment="Left" Margin="0,420,0,0" Name="separator2" VerticalAlignment="Top" Width="435" />
+        
+    </Grid>
+</Window>

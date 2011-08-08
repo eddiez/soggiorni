@@ -1,0 +1,8 @@
+﻿<Window x:Class="Soggiorni.ReportPagamentoWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Report Pagamento" Height="627" Width="719" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen" WindowState="Maximized">
+    <DockPanel>
+        <WindowsFormsHost Name="windowsFormsHost"/>
+    </DockPanel>
+</Window>

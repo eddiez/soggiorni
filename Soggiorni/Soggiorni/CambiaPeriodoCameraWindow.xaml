@@ -1,0 +1,25 @@
+﻿<Window x:Class="Soggiorni.CambiaPeriodoCameraWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Cambia Periodo e/o Camera" Height="312" Width="321" Background="{DynamicResource sfondoWindow}" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid>
+        
+        <TextBlock FontFamily="Segoe UI" FontSize="14" FontWeight="Normal" Foreground="Black" Height="23" HorizontalAlignment="Left" Margin="39,14,0,0" Name="txtArrivo" Text="Arrivo" VerticalAlignment="Top" />
+        <DatePicker FontSize="14" Height="25" HorizontalAlignment="Left" Margin="117,12,0,0" Name="datePickerArrivo" VerticalAlignment="Top" Width="133" SelectedDateChanged="datePickerArrivo_SelectedDateChanged" />
+        <TextBlock FontFamily="Segoe UI" FontSize="14" FontWeight="Normal" Foreground="Black" Height="23" HorizontalAlignment="Left" Margin="39,45,0,0" Name="txtPartenza" Text="Partenza" VerticalAlignment="Top" />
+        <DatePicker FontSize="14" Height="25" HorizontalAlignment="Left" Margin="117,43,0,0" Name="datePickerPartenza" VerticalAlignment="Top" Width="133" SelectedDateChanged="datePickerPartenza_SelectedDateChanged" />
+        <TextBlock FontFamily="Segoe UI" FontSize="14" FontWeight="Normal" Foreground="Black" Height="23" HorizontalAlignment="Left" Margin="39,74,0,0" Name="txtCamera" Text="Camera" VerticalAlignment="Top" />
+        <ComboBox ItemsSource="{Binding}" DisplayMemberPath="Numero" SelectedValuePath="Numero" Height="23" HorizontalAlignment="Left" Margin="117,74,0,0" Name="cbxCamere" VerticalAlignment="Top" Width="133" SelectionChanged="cbxCamere_SelectionChanged" />
+        <Grid Background="#FFF2F2F2" Height="99" HorizontalAlignment="Left" Margin="39,117,0,0" Name="gridVerificaDisp" OpacityMask="{x:Null}" VerticalAlignment="Top" Width="211">
+            <Button Click="btnVerificaDisp_Click" Content="Verifica disponiblità" FontFamily="Segoe UI" FontSize="14" FontStyle="Italic" FontWeight="Bold" Height="23" HorizontalAlignment="Left" Margin="21,6,0,0" Name="btnVerificaDisp" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="163" />
+            <Ellipse Fill="{DynamicResource semaforoGrigio}" Height="60" Margin="76,33,68,0" Name="ellipseSemaforo" Stroke="Silver" VerticalAlignment="Top" Width="60">
+                <Ellipse.BitmapEffect>
+                    <DropShadowBitmapEffect Color="Black" Direction="320" Opacity="0.5" ShadowDepth="5" Softness="0.3" />
+                </Ellipse.BitmapEffect>
+            </Ellipse>
+        </Grid>
+        <Button Content="Modifica" Height="25" HorizontalAlignment="Left" Margin="72,230,0,0" Name="btnModifica" VerticalAlignment="Top" Width="86" Click="btnModifica_Click" />
+        <Button Content="Annulla" Height="25" HorizontalAlignment="Left" Margin="164,230,0,0" Name="btnAnnulla" VerticalAlignment="Top" Width="86" Click="btnAnnulla_Click" />
+        
+    </Grid>
+</Window>
