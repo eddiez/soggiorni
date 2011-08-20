@@ -549,7 +549,7 @@ namespace Soggiorni.Data
             * Soggiorno.Caparra, Soggiorno.NoteCaparra, Soggiorno.TotaleSoggiorno, Soggiorno.NoteSaldoSoggiorno, 
             * Soggiorno.NoteDurataSoggiorno, Soggiorno.TotaleCamera, Soggiorno.Confermato, Soggiorno.NoteNumeroOspiti,
             * Cliente.ID, Cliente.Cognome, Camera.ID, Camera.Numero, Soggiorno.NomePrenotante,Soggiorno.IsCheckedIn, 
-            * Soggiorno.IsCheckedOut, Soggiorno.PagamentoId
+            * Soggiorno.IsCheckedOut, Soggiorno.PagamentoId, Soggiorno.ColoreGruppo
             * */
 
             sog.Id = idSoggiorno;
@@ -575,6 +575,7 @@ namespace Soggiorni.Data
             sog.IsCheckedIn = bool.Parse(reader[18].ToString());
             sog.IsCheckedOut = bool.Parse(reader[19].ToString());
             sog.IdPagamento = reader[20].ToString() == "" ? 0 : int.Parse(reader[20].ToString());
+            sog.ColoreGruppoArgb = (reader[21].ToString() == "") ? 0 : int.Parse(reader[21].ToString()); 
         
             reader.Close();
             
@@ -644,7 +645,7 @@ namespace Soggiorni.Data
             sta.UpdateById(s.Arrivo, s.Partenza, s.Cliente.Id, s.Camera.Id, s.UsoCamera, s.PrezzoANotte, s.Caparra,
                 s.NoteCaparra, s.TotaleSoggiorno, s.NoteSaldoSoggiorno, s.NoteDurata, s.TotalePernotto, s.Prenotante,
                 s.Confermato, s.NoteCamera, s.IsCheckedIn, s.IsCheckedOut, 
-                s.IdPagamento==0 ? null : (int?)s.IdPagamento,
+                s.IdPagamento==0 ? null : (int?)s.IdPagamento, s.ColoreGruppoArgb,
                 s.Id);
         }
 
@@ -1450,6 +1451,7 @@ namespace Soggiorni.Data
                     Numero = int.Parse(reader[5].ToString()),
                     Agriturismo = reader[6].ToString()
                 };
+                sog.ColoreGruppoArgb = (reader[7].ToString() == "") ? 0 : int.Parse(reader[7].ToString());
                 list.Add(sog);
             }
             reader.Close();
