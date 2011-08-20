@@ -31,8 +31,9 @@ namespace Soggiorni
         private DateTime lastDay;
         private System.Windows.Forms.DataGridView dataGridTableau;
         private List<Camera> camere;
-        private System.Drawing.Color prenotataColor;
-        private System.Drawing.Color confermataColor;
+       // private System.Drawing.Color prenotataColor;    //deprecated
+       // private System.Drawing.Color confermataColor;   //deprecated
+        private System.Drawing.Color defaultColor;
 
         private int startCol;
         private int endCol;
@@ -96,11 +97,13 @@ namespace Soggiorni
             
             windowsFormsHost.Child = dataGridTableau;
 
-            confermataColor = System.Drawing.Color.LawnGreen;
-            prenotataColor = System.Drawing.Color.Gold;
+            //confermataColor = System.Drawing.Color.LawnGreen;
+            //prenotataColor = System.Drawing.Color.Gold;
+            defaultColor = System.Drawing.Color.LawnGreen;
 
             dataGridTableau.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridTableau.ColumnHeadersDefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridTableau.DefaultCellStyle.BackColor = System.Drawing.Color.White;
             dataGridTableau.AlternatingRowsDefaultCellStyle.BackColor = System.Drawing.Color.LightGray;
             dataGridTableau.AllowUserToAddRows = false;
             dataGridTableau.AllowUserToDeleteRows = false;
@@ -167,10 +170,7 @@ namespace Soggiorni
                 for (int i = 1; i <= numCellToColor; i++)
                 {
                     dataGridTableau[i, rowCamera].ToolTipText = notti;
-                    if (s.Confermato)
-                        dataGridTableau[i, rowCamera].Style.BackColor = confermataColor;
-                    else
-                        dataGridTableau[i, rowCamera].Style.BackColor = prenotataColor;
+                    coloraCella(s, rowCamera, i);
                 }
 
                 dataGridTableau[1, rowCamera].Value = s.Cliente.Cognome;
@@ -184,10 +184,7 @@ namespace Soggiorni
                 for (int i = startColumn; i <= startColumn + numCellToColor; i++)
                 {
                     dataGridTableau[i, rowCamera].ToolTipText = notti;
-                    if (s.Confermato)
-                        dataGridTableau[i, rowCamera].Style.BackColor = confermataColor;
-                    else
-                        dataGridTableau[i, rowCamera].Style.BackColor = prenotataColor;
+                    coloraCella(s, rowCamera, i);
                 }
                 dataGridTableau[startColumn, rowCamera].Value = s.Cliente.Cognome;
                 return;
@@ -198,12 +195,23 @@ namespace Soggiorni
             for (int i = startColumn; i <= endColumn; i++)
             {
                 dataGridTableau[i, rowCamera].ToolTipText = notti;
-                if (s.Confermato)
-                    dataGridTableau[i, rowCamera].Style.BackColor = confermataColor;
-                else
-                    dataGridTableau[i, rowCamera].Style.BackColor = prenotataColor;
+                coloraCella(s, rowCamera, i);
             }
             dataGridTableau[startColumn, rowCamera].Value = s.Cliente.Cognome;
+        }
+
+        private void coloraCella(Soggiorno s, int rowCamera, int col)
+        {
+            if (s.ColoreGruppoArgb != 0)
+                dataGridTableau[col, rowCamera].Style.BackColor = System.Drawing.Color.FromArgb(s.ColoreGruppoArgb);
+            else
+            {
+                dataGridTableau[col, rowCamera].Style.BackColor = defaultColor;
+                /*if (s.Confermato)
+                    dataGridTableau[col, rowCamera].Style.BackColor = confermataColor;
+                else
+                    dataGridTableau[col, rowCamera].Style.BackColor = prenotataColor;*/
+            }
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -240,8 +248,8 @@ namespace Soggiorni
             //MessageBox.Show(dataGridTableau[5, 50].Value.ToString());
             if (e.RowIndex < 0 || e.ColumnIndex <= 0 || e.RowIndex >=maxRow || e.ColumnIndex >= maxCol) return;
 
-            if (dataGridTableau[e.ColumnIndex, e.RowIndex].Style.BackColor == prenotataColor ||
-                dataGridTableau[e.ColumnIndex, e.RowIndex].Style.BackColor == confermataColor)
+            if (dataGridTableau[e.ColumnIndex, e.RowIndex].InheritedStyle.BackColor != System.Drawing.Color.LightGray &&
+                dataGridTableau[e.ColumnIndex, e.RowIndex].InheritedStyle.BackColor != System.Drawing.Color.White)
             {//modifica soggiorno
                 var date = colToDate(e.ColumnIndex);
                 //seleziona soggiorno cliccato
@@ -285,7 +293,8 @@ namespace Soggiorni
                oldSog.Partenza != newSog.Partenza ||
                oldSog.Camera.Numero != newSog.Camera.Numero ||
                oldSog.Cliente.Cognome != newSog.Cliente.Cognome ||
-               oldSog.Confermato != newSog.Confermato)
+               oldSog.Confermato != newSog.Confermato ||
+               oldSog.ColoreGruppoArgb != newSog.ColoreGruppoArgb)
             {
                 cancellaSoggiornoFromGrid(oldSog);
                 insertSoggiornoInGrid(newSog);
@@ -299,7 +308,7 @@ namespace Soggiorni
             endCol = dateToColumn(sog.Partenza);
             row = getRowCamera(sog.Camera.Numero);
             System.Drawing.Color cellCol = (row % 2) == 0 ? System.Drawing.Color.White : System.Drawing.Color.LightGray;
-            if (sog.Arrivo < firstDay) startCol = 0;
+            if (sog.Arrivo < firstDay) startCol = 1;
             if (sog.Partenza > lastDay) endCol = dataGridTableau.ColumnCount - 1;
 
             for (int i = startCol; i <= endCol; i++)
@@ -327,8 +336,8 @@ namespace Soggiorni
             //verifica se si sovrappone a soggiorni esistenti
             for (int i = startCol; i <= endCol; i++)
             {
-                if (dataGridTableau[i, startRow].Style.BackColor == prenotataColor ||
-                    dataGridTableau[i, startRow].Style.BackColor == confermataColor)
+                if (dataGridTableau[i, startRow].InheritedStyle.BackColor != System.Drawing.Color.LightGray &&
+                    dataGridTableau[i, startRow].InheritedStyle.BackColor != System.Drawing.Color.White)
                     return;
             }
 
