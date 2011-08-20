@@ -32,6 +32,7 @@ namespace Soggiorni.Model
         public bool IsCheckedIn { get; set; }
         public bool IsCheckedOut { get; set; }
         public int IdPagamento { get; set; }
+        public int ColoreGruppoArgb { get; set; }
 
         public decimal PrezzoANotte {
             get {
