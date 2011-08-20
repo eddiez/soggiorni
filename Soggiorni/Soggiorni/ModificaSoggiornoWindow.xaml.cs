@@ -13,6 +13,7 @@ using System.Windows.Shapes;
 using Soggiorni.Model;
 using Soggiorni.Data;
 using System.Collections.ObjectModel;
+//using Microsoft.Windows.Controls;
 
 
 namespace Soggiorni
@@ -44,6 +45,10 @@ namespace Soggiorni
             soggiorno = dag.cercaSoggiornoById(idSoggiorno);
 
             loadDatiSoggiorno();
+
+            
+//            MessageBox.Show(System.Drawing.Color.LawnGreen.ToArgb().ToString());
+  //          MessageBox.Show(System.Drawing.Color.FromArgb(-8586240).ToString());
         }
 
         private void loadDatiSoggiorno()
@@ -104,6 +109,12 @@ namespace Soggiorni
             else
                 ellipseCheckout.Fill = (Brush)Application.Current.FindResource("semaforoRosso");
             //txtImpTotDaPagare.Text = (soggiorno.TotaleSoggiorno - soggiorno.Caparra).ToString("C");
+
+            if (soggiorno.ColoreGruppoArgb != 0)
+            {
+                var c = System.Drawing.Color.FromArgb(soggiorno.ColoreGruppoArgb);
+                colorPickerSogg.SelectedColor = System.Windows.Media.Color.FromArgb(c.A, c.R, c.G, c.B);
+            }
         }
 
         private void txtboxPrezzoANotte_TextChanged(object sender, TextChangedEventArgs e)
@@ -268,6 +279,8 @@ namespace Soggiorni
             soggiorno.Confermato = (bool)checkBoxConferma.IsChecked;
             soggiorno.NoteCaparra = txtboxNoteCaparra.Text;
             soggiorno.NoteSaldoSoggiorno = txtboxNotePagamento.Text;
+            soggiorno.ColoreGruppoArgb = System.Drawing.Color.FromArgb(colorPickerSogg.SelectedColor.A,
+                colorPickerSogg.SelectedColor.R, colorPickerSogg.SelectedColor.G, colorPickerSogg.SelectedColor.B).ToArgb();
 
             //aggiorna dati soggiorno e servizi soggiorno nel db
             dag.aggiornaSoggiorno(soggiorno);
