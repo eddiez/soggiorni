@@ -264,7 +264,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Soggiorni"
         "ProductCode" = "8:{59579714-3E7A-473F-A4AD-0849B88F6D3F}"
-        "PackageCode" = "8:{8668D952-D508-4350-9617-CE1CA30D3015}"
+        "PackageCode" = "8:{7E9AC441-62D1-450C-A9EF-3E3E568E639B}"
         "UpgradeCode" = "8:{5254391F-E9D8-4DAD-BD5C-F1CD6475EC7E}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"

@@ -1,7 +1,7 @@
 ﻿<Window x:Class="Soggiorni.AddSoggiornoWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Aggiungi Soggiorno" Height="730" Width="700" Background="{DynamicResource sfondoWindow}" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Closing="Window_Closing">
+        Title="Aggiungi Soggiorno" Height="730" Width="700" Background="{DynamicResource sfondoWindow}" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Closing="Window_Closing" xmlns:my="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input.Toolkit">
    
     <Grid>
         <GroupBox Height="130" HorizontalAlignment="Left" Margin="12,12,0,0" Name="grpboxPeriodo" VerticalAlignment="Top" Width="654" FontFamily="Berlin Sans FB" FontSize="26" FontWeight="Bold" Background="#FFFFFFE8" Foreground="#FFB44B00" BorderThickness="2" BorderBrush="#7DB44B00">
@@ -56,7 +56,7 @@
                 <TextBlock Text="Cliente" Foreground="#FF055DBF"/>
             </GroupBox.Header>
             <Grid>
-                <Button Content="Cliente in Archivio" Height="31" HorizontalAlignment="Left" Margin="136,6,0,0" Name="btnSelezionaCliente" VerticalAlignment="Top" Width="163" FontFamily="Segoe UI" FontSize="16" FontWeight="Bold" Foreground="#FF055DBF" Click="btnSelezionaCliente_Click" />
+                <Button Content="..." Height="31" HorizontalAlignment="Left" Margin="305,5,0,0" Name="btnSelezionaCliente" VerticalAlignment="Top" Width="27" FontFamily="Segoe UI" FontSize="16" FontWeight="Bold" Foreground="#FF055DBF" Click="btnSelezionaCliente_Click" />
                 <Button Content="Nuovo Cliente" FontFamily="Segoe UI" FontSize="16" FontWeight="Bold" Foreground="#FF055DBF" Height="31" HorizontalAlignment="Left" Margin="424,6,0,0" Name="btnNewCliente" VerticalAlignment="Top" Width="163" Click="btnNewCliente_Click" />
                 <TextBlock Height="23" HorizontalAlignment="Left" Margin="43,70,0,0" Name="txtCognome" Text="Cognome" VerticalAlignment="Top" FontFamily="Segoe UI" FontSize="14" FontWeight="Normal" />
                 <TextBox Height="23" HorizontalAlignment="Left" Margin="136,70,0,0" Name="txtboxCognome" VerticalAlignment="Top" Width="163" FontSize="12" FontFamily="Segoe UI" FontWeight="Normal" IsEnabled="True" />
@@ -71,6 +71,8 @@
                 <Separator Height="5" HorizontalAlignment="Left" Margin="0,51,0,0" Name="separatorCliente" VerticalAlignment="Top" Width="654" />
                 <TextBlock FontFamily="Segoe UI" FontSize="14" FontWeight="Normal" Height="23" HorizontalAlignment="Left" Margin="338,13,0,0" Name="txtOppure" Text="oppure" VerticalAlignment="Top" />
                 <Ellipse Fill="#FF055DBF" Height="7" HorizontalAlignment="Left" Margin="28,77,0,0" Name="ellipse4" Stroke="{x:Null}" VerticalAlignment="Top" Width="7" />
+                <my:AutoCompleteBox IsTextCompletionEnabled="False" MinimumPrefixLength="2" Populating="autoCompleteCliente_Populating" DropDownClosed="autoCompleteCliente_DropDownClosed"
+                    HorizontalAlignment="Left" Margin="43,6,0,0" Name="autoCompleteCliente" VerticalAlignment="Top" Width="256" Height="30" FontFamily="Segoe UI" FontSize="14" />
             </Grid>
         </GroupBox>
         <GroupBox Background="#FFD9CEFF" FontFamily="Berlin Sans FB" FontSize="26" FontWeight="Bold" Foreground="#FF774C9D" Height="108" HorizontalAlignment="Left" Margin="12,533,0,0" Name="grpboxAltreInfo" VerticalAlignment="Top" Width="654" BorderThickness="2" BorderBrush="#7D774C9D">

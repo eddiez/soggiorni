@@ -89,3 +89,7 @@ D:\Siti, sw mio\Soggiorni\codice\Soggiorni\Soggiorni\obj\x86\Debug\CFCalcWindow.
 D:\Siti, sw mio\Soggiorni\codice\Soggiorni\Soggiorni\obj\x86\Debug\CFCalcWindow.g.cs
 D:\Siti, sw mio\Soggiorni\codice\Soggiorni\Soggiorni\bin\Debug\CFcalculator.dll
 D:\Siti, sw mio\Soggiorni\codice\Soggiorni\Soggiorni\bin\Debug\CFcalculator.pdb
+D:\Siti, sw mio\Soggiorni\codice\Soggiorni\Soggiorni\bin\Debug\System.Windows.Controls.Input.Toolkit.dll
+D:\Siti, sw mio\Soggiorni\codice\Soggiorni\Soggiorni\bin\Debug\WPFToolkit.dll
+D:\Siti, sw mio\Soggiorni\codice\Soggiorni\Soggiorni\bin\Debug\System.Windows.Controls.Input.Toolkit.pdb
+D:\Siti, sw mio\Soggiorni\codice\Soggiorni\Soggiorni\bin\Debug\WPFToolkit.pdb

@@ -13,6 +13,7 @@ using System.Windows.Shapes;
 using Soggiorni.Model;
 using Soggiorni.Data;
 using System.Media;
+using System.Collections.ObjectModel;
 
 namespace Soggiorni
 {
@@ -25,6 +26,7 @@ namespace Soggiorni
         private DataAccessGateway dag;
         private bool cameraDisponibileVerificata = false;
         private List<Camera> allCamera;
+        private ObservableCollection<Cliente> clientiDaPrefix;
         private int idSelectedClient = 0;
 
         public bool isNuovoCliente = false;
@@ -107,6 +109,15 @@ namespace Soggiorni
             txtboxNoteCliente.Background = enabledColor;
         }
 
+        private void resetClienteTextBoxes()
+        {
+            txtboxCognome.Text = "";
+            txtboxNome.Text = "";
+            txtboxTel.Text = "";
+            txtboxMail.Text = "";
+            txtboxNoteCliente.Text = "";
+        }
+
         private void btnVerificaDisp_Click(object sender, RoutedEventArgs e)
         {
             if (datepickerPartenza.SelectedDate <= datepickerArrivo.SelectedDate)
@@ -140,10 +151,11 @@ namespace Soggiorni
         private void btnNewCliente_Click(object sender, RoutedEventArgs e)
         {
             enableClienteTextBoxes();
+            resetClienteTextBoxes();
             isNuovoCliente = true;
-            btnNewCliente.IsEnabled = false;
-            btnSelezionaCliente.IsEnabled = false;
-            btnSelezionaCliente.Foreground = new SolidColorBrush(Colors.LightGray);
+           // btnNewCliente.IsEnabled = false;
+            //btnSelezionaCliente.IsEnabled = false;
+            //btnSelezionaCliente.Foreground = new SolidColorBrush(Colors.LightGray);
             txtboxCognome.Focus();
         }
 
@@ -154,10 +166,11 @@ namespace Soggiorni
 
             if (sucw.DialogResult.HasValue && sucw.DialogResult.Value)
             {
-                enableClienteTextBoxes();
+                //enableClienteTextBoxes();
+                disableClienteTextBoxes();
                 isNuovoCliente = false;
-                btnNewCliente.IsEnabled = false;
-                btnNewCliente.Foreground = new SolidColorBrush(Colors.LightGray);
+                //btnNewCliente.IsEnabled = false;
+                //btnNewCliente.Foreground = new SolidColorBrush(Colors.LightGray);
 
                 //riempi i campi con i dati del cliente
                 var cl = sucw.clienteSelezionato;
@@ -167,24 +180,29 @@ namespace Soggiorni
                 txtboxMail.Text = cl.Email;
                 txtboxNoteCliente.Text = cl.Descr;
                 idSelectedClient = cl.Id;
-                
-                //verifica se ci sono notifiche da fare per questo cliente: tipo ogni X soggiorni un premio
-                var sogs = dag.cercaSoggiorniCliente(idSelectedClient);
-                if (sogs.Count > 0)
-                {
-                    int soggiorniCliente = sogs.Count + 1;
-                    if (soggiorniCliente == Properties.Settings.Default.CadenzaPremioSoggiorni)
-                    {
-                        //suono premio soggiorno
-                        /*var mp = new MediaPlayer();
-                        mp.Open(new Uri("arpa.mp3", UriKind.Relative));
-                        mp.Play();*/
-                        var sp = new SoundPlayer("arpa.wav");
-                        sp.Play();
 
-                        loadNotifyIcon(cl.Cognome);
-                        
-                    }
+                verificaPremi(cl);
+            }
+        }
+
+        private void verificaPremi(Cliente cl)
+        {
+            //verifica se ci sono notifiche da fare per questo cliente: tipo ogni X soggiorni un premio
+            var sogs = dag.cercaSoggiorniCliente(idSelectedClient);
+            if (sogs.Count > 0)
+            {
+                int soggiorniCliente = sogs.Count + 1;
+                if (soggiorniCliente == Properties.Settings.Default.CadenzaPremioSoggiorni)
+                {
+                    //suono premio soggiorno
+                    /*var mp = new MediaPlayer();
+                    mp.Open(new Uri("arpa.mp3", UriKind.Relative));
+                    mp.Play();*/
+                    var sp = new SoundPlayer("arpa.wav");
+                    sp.Play();
+
+                    loadNotifyIcon(cl.Cognome);
+
                 }
             }
         }
@@ -257,7 +275,7 @@ namespace Soggiorni
                 MessageBox.Show("Selezionare una camera per la prenotazione", "Camera non selezionata", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
-            if (txtboxCognome.IsReadOnly)
+            if (txtboxCognome.Text=="")
             {
                 MessageBox.Show("Selezionare un cliente per la prenotazione", "Cliente non selezionato", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
@@ -350,6 +368,37 @@ namespace Soggiorni
         {
             if(notifyIcon!=null)
                 notifyIcon.Dispose();
+        }
+
+        private void autoCompleteCliente_Populating(object sender, PopulatingEventArgs e)
+        {
+            List<Cliente> clist = dag.cercaClientiByCognome(autoCompleteCliente.Text);
+            clientiDaPrefix = new ObservableCollection<Cliente>(clist);
+            autoCompleteCliente.ItemsSource = clientiDaPrefix;
+
+            autoCompleteCliente.PopulateComplete();
+        }
+
+        private void autoCompleteCliente_DropDownClosed(object sender, RoutedPropertyChangedEventArgs<bool> e)
+        {
+            if (autoCompleteCliente.SelectedItem == null) return;
+
+            //enableClienteTextBoxes();
+            disableClienteTextBoxes();
+            isNuovoCliente = false;
+            //btnNewCliente.IsEnabled = false;
+            //btnNewCliente.Foreground = new SolidColorBrush(Colors.LightGray);
+
+            //riempi i campi con i dati del cliente
+            var cl = (Cliente)autoCompleteCliente.SelectedItem;
+            txtboxCognome.Text = cl.Cognome;
+            txtboxNome.Text = cl.Nome;
+            txtboxTel.Text = cl.Telefoni;
+            txtboxMail.Text = cl.Email;
+            txtboxNoteCliente.Text = cl.Descr;
+            idSelectedClient = cl.Id;
+
+            verificaPremi(cl);
         }
     }
 }

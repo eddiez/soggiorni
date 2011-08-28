@@ -27,6 +27,10 @@ namespace Soggiorni.Model
         public Comune ComuneRilascioDoc { get; set; }
         public Stato StatoRilascioDoc { get; set; }
         public ProvenienzaIstat ProvenIstat { get; set; }
-        
+
+        public override string ToString()
+        {
+            return Cognome;
+        }
     }
 }

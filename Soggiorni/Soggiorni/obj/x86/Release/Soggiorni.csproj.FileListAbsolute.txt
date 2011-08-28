@@ -128,3 +128,7 @@ D:\Siti, sw mio\Soggiorni\codice\Soggiorni\Soggiorni\bin\Release\CFcalculator.dl
 D:\Siti, sw mio\Soggiorni\codice\Soggiorni\Soggiorni\bin\Release\CFcalculator.pdb
 D:\Siti, sw mio\Soggiorni\codice\Soggiorni\Soggiorni\obj\x86\Release\CFCalcWindow.baml
 D:\Siti, sw mio\Soggiorni\codice\Soggiorni\Soggiorni\obj\x86\Release\CFCalcWindow.g.cs
+D:\Siti, sw mio\Soggiorni\codice\Soggiorni\Soggiorni\bin\Release\System.Windows.Controls.Input.Toolkit.dll
+D:\Siti, sw mio\Soggiorni\codice\Soggiorni\Soggiorni\bin\Release\WPFToolkit.dll
+D:\Siti, sw mio\Soggiorni\codice\Soggiorni\Soggiorni\bin\Release\System.Windows.Controls.Input.Toolkit.pdb
+D:\Siti, sw mio\Soggiorni\codice\Soggiorni\Soggiorni\bin\Release\WPFToolkit.pdb
