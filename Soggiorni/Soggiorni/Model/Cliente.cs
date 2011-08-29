@@ -30,7 +30,7 @@ namespace Soggiorni.Model
 
         public override string ToString()
         {
-            return Cognome;
+            return Cognome + " " + Nome;
         }
     }
 }
