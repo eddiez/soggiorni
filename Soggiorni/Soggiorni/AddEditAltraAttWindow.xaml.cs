@@ -33,10 +33,12 @@ namespace Soggiorni
             : this()
         {
             this.attivita = aa;
+            this.Title = "Modifica altra attività";
+            btnAdd.Content = "Modifica";
             datePickerData.SelectedDate = attivita.Data;
             txtboxVoceStampa.Text = attivita.VoceInStampata;
             txtboxDescr.Text = attivita.Descrizione;
-            txtboxTotale.Text = attivita.Totale.ToString("C");
+            txtboxTotale.Text = attivita.Totale.ToString();
         }
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
