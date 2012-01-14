@@ -67,7 +67,7 @@ namespace Soggiorni
 
             try
             {
-                servizio.Totale = decimal.Parse(txtboxTotale.Text, System.Globalization.NumberStyles.Any);
+                servizio.Totale = decimal.Parse(txtboxTotale.Text.Replace('.',','), System.Globalization.NumberStyles.Any);
             }
             catch (FormatException ex)
             {

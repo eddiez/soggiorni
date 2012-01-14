@@ -57,7 +57,7 @@ namespace Soggiorni
             decimal totale;
             try
             {
-                totale = decimal.Parse(txtboxTotale.Text);
+                totale = decimal.Parse(txtboxTotale.Text.Replace('.',','));
             }
             catch (FormatException ex)
             {

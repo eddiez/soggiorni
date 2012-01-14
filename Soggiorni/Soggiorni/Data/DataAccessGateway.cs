@@ -403,7 +403,7 @@ namespace Soggiorni.Data
             cmd.Parameters.Add("IdCliente", OleDbType.Integer).Value = sg.Cliente.Id;
             cmd.Parameters.Add("IdCamera", OleDbType.Integer).Value = sg.Camera.Id;
             cmd.Parameters.Add("UsoCamera", OleDbType.Char, 255).Value = sg.UsoCamera;
-            cmd.Parameters.Add("Caparra", OleDbType.Decimal).Value = sg.Caparra;
+            cmd.Parameters.Add("Caparra", OleDbType.Single).Value = sg.Caparra;
             cmd.Parameters.Add("NoteCaparra", OleDbType.Char, 255).Value = sg.NoteCaparra;
             cmd.Parameters.Add("NoteSoggiorno", OleDbType.Char, 255).Value = sg.NoteDurata;
             cmd.Parameters.Add("Prenotante", OleDbType.Char, 255).Value = sg.Prenotante;
@@ -1195,7 +1195,7 @@ namespace Soggiorni.Data
             cmd.Parameters.Add("IsFattura", OleDbType.Boolean).Value = pag.IsFattura;
             cmd.Parameters.Add("Numero", OleDbType.Integer).Value = pag.Numero;
             cmd.Parameters.Add("Data", OleDbType.Date).Value = pag.Data;
-            cmd.Parameters.Add("Totale", OleDbType.Decimal).Value = pag.Totale;
+            cmd.Parameters.Add("Totale", OleDbType.Single).Value = pag.Totale;
             cmd.Parameters.Add("ModoPagamento", OleDbType.Char, 255).Value = pag.ModoPagamento;
             cmd.Parameters.Add("Destinatario", OleDbType.Char, 255).Value = pag.Destinatario;
             cmd.Parameters.Add("Sede", OleDbType.Char, 255).Value = pag.Sede;

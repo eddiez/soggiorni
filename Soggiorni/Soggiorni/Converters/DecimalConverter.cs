@@ -13,8 +13,10 @@ namespace Soggiorni.Converters
 
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            decimal currency = decimal.Parse(value.ToString());
-            return ((int)currency).ToString();
+            //decimal currency = decimal.Parse(value.ToString());
+            //return ((int)currency).ToString();
+            decimal currency = (decimal)value;
+            return (currency).ToString("N2");
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

@@ -121,7 +121,7 @@ namespace Soggiorni
         {
             try
             {
-                var newPrice = decimal.Parse(txtboxPrezzoANotte.Text, System.Globalization.NumberStyles.Any);
+                var newPrice = decimal.Parse(txtboxPrezzoANotte.Text.Replace('.',','), System.Globalization.NumberStyles.Any);
                 ricalcolaTotalePernotto(newPrice);
             }
             catch (FormatException ex)
@@ -135,7 +135,7 @@ namespace Soggiorni
         {
             try
             {
-                var newPrice = decimal.Parse(txtboxCaparra.Text, System.Globalization.NumberStyles.Any);
+                var newPrice = decimal.Parse(txtboxCaparra.Text.Replace('.',','), System.Globalization.NumberStyles.Any);
                 soggiorno.Caparra= newPrice;
                 txtImpTotDaPagare.Text = (soggiorno.TotaleSoggiorno - soggiorno.Caparra).ToString("C");
             }
@@ -263,8 +263,8 @@ namespace Soggiorni
             //validazione campi
             try
             {
-                soggiorno.PrezzoANotte = decimal.Parse(txtboxPrezzoANotte.Text, System.Globalization.NumberStyles.Any);
-                soggiorno.Caparra = decimal.Parse(txtboxCaparra.Text, System.Globalization.NumberStyles.Any);
+                soggiorno.PrezzoANotte = decimal.Parse(txtboxPrezzoANotte.Text.Replace('.',','), System.Globalization.NumberStyles.Any);
+                soggiorno.Caparra = decimal.Parse(txtboxCaparra.Text.Replace('.', ','), System.Globalization.NumberStyles.Any);
             }
             catch (FormatException ex)
             {
